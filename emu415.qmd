@@ -3,7 +3,7 @@ styles:
   styles.css
 format:
   html:
-    title: 'Database'
+    title: 'Project'
     toc: true
     toc-depth: 6
     toc-title: Contents
