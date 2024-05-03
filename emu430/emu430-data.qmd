@@ -1,0 +1,51 @@
+---
+styles:
+  styles.css
+format:
+  html:
+    toc: true
+    toc-depth: 6
+    toc-title: Contents
+    toc-location: left
+    toc-expand: 5
+    smooth-scroll: true
+    anchor-sections: true
+    include-after-body: abbrv_toc.html
+    number-sections: true
+---
+
+::: {style="text-align: center"}
+::: {style="font-family: fantasy; font-size: 50px; font-style: normal; font-variant: small-caps; font-weight: 700; line-height: 39.6px; color: #333333;"}
+**Data**
+:::
+:::
+
+![](giphy.gif){style="text-align: center" fig-align="center" width="437"}
+
+## General Information About the Data
+
+::: {style="text-align: justify"}
+The Türkiye Health Survey wants to find out how healthy people are and collect important information about key health measures. It helps compare health internationally and gives insights into what health needs a country has for its development.
+:::
+
+**Data source:** [Türkiye Health Survey 2022](https://data.tuik.gov.tr/Bulten/Index?p=Turkiye-Saglik-Arastirmasi-2022-49747){.download-button}
+
+### Why We Selected This Data
+
+::: {style="text-align: justify"}
+We picked the 'Türkiye Health Survey' data set for our EMU430 course because it's interesting and fits well with what we're learning. This data set gives us a lot of information about health in Turkey. We can study things like how people take care of their health, how much alcohol they drink, what common diseases there are, and the body mass index of individuals. It's a good choice for our course because it covers a lot of important health topics in Turkey.
+:::
+
+### Our Objectives
+
+::: {style="text-align: justify"}
+Our main goal is to study how people's health changes with age and differs between men and women. We want to understand how behaviors and diseases vary based on these factors. By doing this research, we hope to gather useful information that can be used to create better health policies and strategies.
+
+Our plan is to use numbers and graphs to look for patterns and differences in the data. We believe that showing our findings visually will make them easier to understand. But before we start, we need to make sure the information we have is correct and complete. We'll check and fix any mistakes or missing details to ensure that our results can be trusted. Following this plan, we aim to make our project's goals, the data we're using, and how we're studying it clear. This will set a strong foundation for our project to move forward successfully.
+:::
+
+## Importing and Preprocessing Data: Our Approach
+
+::: {style="text-align: justify"}
+Before importing our data, we manually cleaned it by removing Turkish text and unnecessary information. Then, we used the '*dplyr*' and '*tidyr*' packages to improve our understanding of the data. The relevant code is provided below.
+:::

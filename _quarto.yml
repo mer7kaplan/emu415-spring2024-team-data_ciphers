@@ -13,7 +13,6 @@ website:
       - text: About
         href: about.qmd
       - text: Courseworks
-        href: courses.qmd
         menu:
           - text: EMU430 Data Analytics
             href: emu430.qmd
@@ -31,7 +30,7 @@ website:
       search: true
       contents:
         - emu430.qmd
-        - emu430_1.qmd
+        - emu430/emu430-data.qmd
   page-navigation: true
   back-to-top-navigation: true
   page-footer:
