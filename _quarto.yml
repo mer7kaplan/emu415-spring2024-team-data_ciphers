@@ -20,10 +20,10 @@ website:
             href: emu415.qmd
 
 
-            
     tools:
       - icon: github
         href: https://github.com/mer7kaplan/emu415-spring2024-team-data_ciphers
+
   sidebar:
     - title: "EMU430 Data Analytics"
       style: "docked"
@@ -50,6 +50,8 @@ format:
     toc-location: left
     theme: flatly
     css: styles.css
+    grid: 
+      sidebar-width: 350px
 
 
 editor: visual

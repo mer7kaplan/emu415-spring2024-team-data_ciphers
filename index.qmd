@@ -18,7 +18,3 @@ Stay healthy and stay tuned to follow our journey through the vast world of data
 
 ![](data_ciphers.gif){fig-align="center" width="500"}
 :::
-
-# Team Members {style="text-align: center"}
-
-[Mert Bekir Kaplan](https://emu-hacettepe-analytics.github.io/emu430-fall2023-mer7kaplan/){.download-button}[Arda Türkan](https://emu-hacettepe-analytics.github.io/emu430-fall2023-ardaturkan/){.download-button} [Ayşenur Eren](https://emu-hacettepe-analytics.github.io/emu430-fall2023-AysenurErenn/){.download-button}
