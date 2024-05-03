@@ -10,16 +10,28 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: Database
-        href: data.qmd
-      - text: Analysis
-        href: analysis.qmd
+      - text: About
+        href: about.qmd
+      - text: Courseworks
+        href: courses.qmd
+        menu:
+          - text: EMU430 Data Analytics
+            href: emu430.qmd
+          - text: EMU415 Database Management Systems
+            href: emu415.qmd
+
 
             
     tools:
       - icon: github
         href: https://github.com/mer7kaplan/emu415-spring2024-team-data_ciphers
-
+  sidebar:
+    - title: "EMU430 Data Analytics"
+      style: "docked"
+      search: true
+      contents:
+        - emu430.qmd
+        - emu430_1.qmd
   page-navigation: true
   back-to-top-navigation: true
   page-footer:
