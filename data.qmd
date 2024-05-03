@@ -70,47 +70,28 @@ Our database aims to facilitate the process of selecting and finding companies f
 3.  **Internship**
 
     -   internship_id (Primary Key)
-
     -   student_id (Foreign Key)
-
     -   company_id (Foreign Key)
-
     -   department
-
     -   duration
-
     -   start_date
-
     -   end_date
-
     -   intern_type
-
     -   requirements
-
     -   status
-
     -   income
 
 4.  **Rating**
 
     -   rating_id (Primary Key)
-
     -   internship_id (Foreign Key)
-
     -   transportation_rating
-
     -   work_env_rating
-
     -   learning_opp_rating
-
     -   food_rating
-
     -   hr_rating
-
     -   mentorship_rating
-
     -   overall_rating
-
     -   comments
 
 ### Relationships
