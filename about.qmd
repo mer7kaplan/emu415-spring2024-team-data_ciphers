@@ -8,13 +8,11 @@ styles:
 ![](about.gif){fig-align="center"}
 
 ::: {style="text-align: justify"}
-The **Team Data Ciphers** story began in the fall semester of **2023**, during the Data Analytics course led by the inspiring **Erdi Dasdemir**. It was there that a spark ignited, bringing together a group of passionate individuals with a thirst for untangling the secrets hidden within data. This initial flame has since fanned into a vibrant fire.
+The **Team Data Ciphers** story began in the fall of **2023** during the **Data Analytics** course led by the inspiring **Erdi Daşdemir** and it was there that a group of people interested in data met and began working together. They have continued to work together ever since.
 
 The **Team Data Ciphers** have grown and evolved since then, welcoming new members who share their passion for data analysis. *Now, even stronger and more diverse*, they continue their exciting journey of discovery, ever eager to crack the codes and unlock the power of information.
 
-We, the **Team Data Ciphers**, are a team with a strong interest in exploring the potential of data. We see ourselves as data detectives, working hard to uncover the stories and insights data can reveal. Through a careful process of analysis and interpretation, we aim to transform raw information into meaningful outcomes.
-
-By drawing on our expertise, we aim to help others navigate the ever-growing data landscape. We aspire to be the voice of data, ensuring it is heard and its significance is recognized.
+We are a team with a strong interest in exploring the potential of data. We see ourselves as data detectives, working hard to uncover the stories and insights data can reveal. Through a careful process of analysis and interpretation, we aim to transform raw information into meaningful outcomes.
 
 ***We would also like to express our sincere appreciation to Erdi Dasdemir, whose inspiration ignited our collective passion for data exploration.***
 :::

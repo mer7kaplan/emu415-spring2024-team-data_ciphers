@@ -2,3 +2,96 @@
 title: 'Coming Soon!'
 ---
 
+Libraries and connection parameters are provided here.
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+library(RMySQL)
+library(readr)
+library(dplyr)
+library(knitr)
+library(ggplot2)
+library(lubridate)
+
+# Set up the connection parameters
+db_host <- "127.0.0.1"  # Localhost address
+db_user <- "root"  # Your MySQL username
+db_password <- ""  # Your MySQL password
+db_name <- "emu415_dataciphers"  # The name of your database
+
+# Establish the connection
+db_connection <- dbConnect(RMySQL::MySQL(), 
+                           host = db_host,
+                           user = db_user,
+                           password = db_password,
+                           dbname = db_name)
+```
+
+## Team Members
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Define the SQL query
+sql_query <- "SELECT first_name, last_name, email, birthdate FROM team_members;"
+
+# Execute the SQL query and retrieve the results
+results <- dbGetQuery(db_connection, sql_query)
+
+# Display the results
+kable(results)
+```
+
+## Distribution of Team Members Across Joining Years
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Define the SQL query
+sql_query <- "SELECT join_year, COUNT(*) AS num_members FROM team_members GROUP BY join_year;"
+
+# Execute the SQL query and retrieve the results
+results <- dbGetQuery(db_connection, sql_query)
+
+# Convert join_year to factor to maintain order in the plot
+results$join_year <- factor(results$join_year, levels = unique(results$join_year))
+
+# Plot the distribution of team members across different joining years
+ggplot(results, aes(x = join_year, y = num_members)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Distribution of Team Members Across Joining Years",
+       x = "Joining Year",
+       y = "Number of Team Members") +
+  theme_minimal()
+
+```
+
+## Age Distribution of Team Members
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Define the SQL query to fetch birthdate data
+sql_query <- "SELECT birthdate FROM team_members;"
+
+# Execute the SQL query and retrieve the birthdate data
+birthdate_data <- dbGetQuery(db_connection, sql_query)
+
+# Convert birthdate to date type
+birthdate_data$birthdate <- as.Date(birthdate_data$birthdate)
+
+# Calculate age from birthdate
+birthdate_data$age <- as.numeric(difftime(Sys.Date(), birthdate_data$birthdate, units = "days")) / 365.25
+
+# Plot age distribution
+ggplot(birthdate_data, aes(x = age)) +
+  geom_histogram(binwidth = 1, fill = "skyblue", color = "black") +
+  labs(title = "Age Distribution of Team Members",
+       x = "Age",
+       y = "Frequency") +
+  theme_minimal()
+```

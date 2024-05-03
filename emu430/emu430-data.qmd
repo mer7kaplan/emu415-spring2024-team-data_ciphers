@@ -15,7 +15,7 @@ format:
     number-sections: true
 ---
 
-![](giphy.gif){style="text-align: center" fig-align="left" width="437"}
+![](giphy.gif){style="text-align: center" fig-align="center" width="437"}
 
 ## General Information About the Data
 
