@@ -1,11 +1,24 @@
 ---
-title: "emu415-spring2024-team-data_ciphers"
+styles:
+  styles.css
+sidebar: false
+from: markdown+emoji
 ---
 
-This is a Quarto website.
+::: {style="text-align: center"}
+::: {style="font-family: fantasy; font-size: 50px; font-style: normal; font-variant: small-caps; font-weight: 700; line-height: 39.6px; color: #333333;"}
+**Data Ciphers**
+:::
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+> *Health is the wealth of data. Join us at Data Ciphers as we explore the rich tapestry of well-being through the lens of analytics.*
 
-```{r}
-1 + 1
-```
+Hi! :smile: Welcome to our project webpage.
+
+Stay healthy and stay tuned to follow our journey through the vast world of data.
+
+![](data_ciphers.gif){fig-align="center" width="500"}
+:::
+
+# Team Members {style="text-align: center"}
+
+[Mert Bekir Kaplan](https://emu-hacettepe-analytics.github.io/emu430-fall2023-mer7kaplan/){.download-button}[Arda Türkan](https://emu-hacettepe-analytics.github.io/emu430-fall2023-ardaturkan/){.download-button} [Ayşenur Eren](https://emu-hacettepe-analytics.github.io/emu430-fall2023-AysenurErenn/){.download-button}
