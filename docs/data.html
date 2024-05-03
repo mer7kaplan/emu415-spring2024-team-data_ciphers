@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Ciphers Official Website - Data</title>
+<title>Data Ciphers Official Website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -95,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./data.html" aria-current="page"> 
-<span class="menu-text">Data</span></a>
+<span class="menu-text">Database</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./analysis.html"> 
@@ -113,7 +114,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="5">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#emu-hacettepe-internship-informing-feedback-system" id="toc-emu-hacettepe-internship-informing-feedback-system" class="nav-link active" data-scroll-target="#emu-hacettepe-internship-informing-feedback-system"><span class="header-section-number">1</span> EMU Hacettepe Internship Informing &amp; Feedback System</a>
+  <ul>
+  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective"><span class="header-section-number">1.1</span> Objective</a></li>
+  <li><a href="#application-features" id="toc-application-features" class="nav-link" data-scroll-target="#application-features"><span class="header-section-number">1.2</span> Application Features</a></li>
+  <li><a href="#relations-tables-and-their-attributes-as-an-initial-design" id="toc-relations-tables-and-their-attributes-as-an-initial-design" class="nav-link" data-scroll-target="#relations-tables-and-their-attributes-as-an-initial-design"><span class="header-section-number">1.3</span> Relations (Tables) and Their Attributes as an Initial Design</a></li>
+  <li><a href="#relationships" id="toc-relationships" class="nav-link" data-scroll-target="#relationships"><span class="header-section-number">1.4</span> Relationships</a></li>
+  </ul></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -122,29 +135,144 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Data</h1>
+
+
+
+<div style="text-align: center">
+<div style="font-family: fantasy; font-size: 50px; font-style: normal; font-variant: small-caps; font-weight: 700; line-height: 39.6px; color: #333333;">
+<p><strong>Database</strong></p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sql.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" style="text-align: center" width="437"></p>
+</figure>
+</div>
+<section id="emu-hacettepe-internship-informing-feedback-system" class="level2" data-toc-text="Our Database" data-number="1">
+<h2 data-toc-text="Our Database" data-number="1" class="anchored" data-anchor-id="emu-hacettepe-internship-informing-feedback-system"><span class="header-section-number">1</span> EMU Hacettepe Internship Informing &amp; Feedback System</h2>
+<section id="objective" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="objective"><span class="header-section-number">1.1</span> Objective</h3>
+<div style="text-align: justify;">
+<p>Our database aims to facilitate the process of selecting and finding companies for internships for students of Industrial Engineering at Hacettepe University. To achieve this, we gather data and evaluations from students who have previously completed their internships at these companies. The information in our database allows students to know what they can expect to experience and what to expect within the opportunities provided by these companies. In addition to evaluations, our database also includes information about the application process for internship programs offered by relevant companies.</p>
+</div>
+</section>
+<section id="application-features" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="application-features"><span class="header-section-number">1.2</span> Application Features</h3>
+<div style="text-align: justify;">
+<ul>
+<li><p><strong>Company Search:</strong> Users can search for companies offering internships based on various criteria such as location, industry, duration, and specific requirements.</p></li>
+<li><p><strong>Student Evaluation System:</strong> A platform where students can provide feedback and evaluations on their internship experiences, including ratings for different aspects such as work environment, mentor-ship, learning opportunities, and overall satisfaction.</p></li>
+<li><p><strong>Company Profiles:</strong> Detailed profiles for each company, including information about their internship programs, requirements, past interns’ experiences, and any additional benefits offered.</p></li>
+<li><p><strong>Internship Opportunities:</strong> A section dedicated to listing current internship opportunities available at different companies, with details on application websites, requirements, and how to apply.</p></li>
+<li><p><strong>Analytics and Insights:</strong> Data analytics features to provide insights and trends based on the evaluations and feedback collected from students, helping to identify top-rated companies, popular internship programs, and areas for improvement.</p></li>
+</ul>
+</div>
+</section>
+<section id="relations-tables-and-their-attributes-as-an-initial-design" class="level3" data-toc-text="Relations &amp; Attributes" data-number="1.3">
+<h3 data-toc-text="Relations &amp; Attributes" data-number="1.3" class="anchored" data-anchor-id="relations-tables-and-their-attributes-as-an-initial-design"><span class="header-section-number">1.3</span> Relations (Tables) and Their Attributes as an Initial Design</h3>
+<ol type="1">
+<li><p><strong>Student</strong></p>
+<ul>
+<li>student_id (Primary Key)</li>
+<li>first_name</li>
+<li>last_name</li>
+<li>email</li>
+<li>join_year</li>
+<li>gpa</li>
+<li>website</li>
+</ul></li>
+<li><p><strong>Company</strong></p>
+<ul>
+<li>company_id (Primary Key)</li>
+<li>company_name</li>
+<li>industry</li>
+<li>location</li>
+<li>contact_info</li>
+<li>app_website</li>
+<li>working_hours</li>
+<li>transportation_status <div style="page-break-after: always;"></div></li>
+</ul></li>
+<li><p><strong>Internship</strong></p>
+<ul>
+<li><p>internship_id (Primary Key)</p></li>
+<li><p>student_id (Foreign Key)</p></li>
+<li><p>company_id (Foreign Key)</p></li>
+<li><p>department</p></li>
+<li><p>duration</p></li>
+<li><p>start_date</p></li>
+<li><p>end_date</p></li>
+<li><p>intern_type</p></li>
+<li><p>requirements</p></li>
+<li><p>status</p></li>
+<li><p>income</p></li>
+</ul></li>
+<li><p><strong>Rating</strong></p>
+<ul>
+<li><p>rating_id (Primary Key)</p></li>
+<li><p>internship_id (Foreign Key)</p></li>
+<li><p>transportation_rating</p></li>
+<li><p>work_env_rating</p></li>
+<li><p>learning_opp_rating</p></li>
+<li><p>food_rating</p></li>
+<li><p>hr_rating</p></li>
+<li><p>mentorship_rating</p></li>
+<li><p>overall_rating</p></li>
+<li><p>comments</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="relationships" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="relationships"><span class="header-section-number">1.4</span> Relationships</h3>
+<div style="text-align: justify;">
+<ul>
+<li><p><strong>internships belongs to company:</strong> One-to-many relationship, each company can offer multiple internships, but each internship is associated with only one company.</p></li>
+<li><p><strong>internship belongs to student</strong>: One-to-many relationship, one student can have multiple internships, but each internship is associated with only one student.</p></li>
+<li><p><strong>rating belongs to internship:</strong> One-to-one relationship, each internship has one rating, and each rating is associated with only one internship.</p></li>
+<li><p><strong>student to rating through internship:</strong> One-to-many relationship, each student can have many ratings as well as internships, but each rating can only have one student and one internship.</p></li>
+<li><p><strong>company to rating through internship:</strong> One to many relationship, each company can have many ratings as well as internships, but each rating can only have one company and one internship.</p></li>
+</ul>
 </div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-
-
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+
+  function abbrv_toc() {
+
+    let toc = document.querySelectorAll('nav#TOC li>a');
+
+    toc.forEach(e => {
+
+      let id = e.id.substring(4);
+
+      let sec = document.getElementById(id);
+
+      let toc_text = sec.getAttribute('data-toc-text');
+
+      if(toc_text != null) {
+
+        let new_toc_text = e.querySelector('span').outerHTML + ' ' + toc_text;
+
+        e.innerHTML = new_toc_text;
+
+      }
+
+    })
+
+  };
+
+
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    abbrv_toc();
+
+  });
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -572,4 +700,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -10,7 +10,7 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: Data
+      - text: Database
         href: data.qmd
       - text: Analysis
         href: analysis.qmd
