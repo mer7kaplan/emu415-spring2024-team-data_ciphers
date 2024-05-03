@@ -53,41 +53,41 @@
   {
     "objectID": "emu415/emu415-database.html",
     "href": "emu415/emu415-database.html",
-    "title": "Coming Soon!",
+    "title": "Data Ciphers Database",
     "section": "",
     "text": "Libraries and connection parameters are provided here.\nShow the code\nlibrary(RMySQL)\nlibrary(readr)\nlibrary(dplyr)\nlibrary(knitr)\nlibrary(ggplot2)\nlibrary(lubridate)\n\n# Set up the connection parameters\ndb_host &lt;- \"127.0.0.1\"  # Localhost address\ndb_user &lt;- \"root\"  # Your MySQL username\ndb_password &lt;- \"\"  # Your MySQL password\ndb_name &lt;- \"emu415_dataciphers\"  # The name of your database\n\n# Establish the connection\ndb_connection &lt;- dbConnect(RMySQL::MySQL(), \n                           host = db_host,\n                           user = db_user,\n                           password = db_password,\n                           dbname = db_name)",
     "crumbs": [
-      "Coming Soon!"
+      "Data Ciphers Database"
     ]
   },
   {
     "objectID": "emu415/emu415-database.html#team-members",
     "href": "emu415/emu415-database.html#team-members",
-    "title": "Coming Soon!",
-    "section": "Team Members",
-    "text": "Team Members\n\n\nShow the code\n# Define the SQL query\nsql_query &lt;- \"SELECT first_name, last_name, email, birthdate FROM team_members;\"\n\n# Execute the SQL query and retrieve the results\nresults &lt;- dbGetQuery(db_connection, sql_query)\n\n# Display the results\nkable(results)\n\n\n\n\n\n\n\n\n\n\n\nfirst_name\nlast_name\nemail\nbirthdate\n\n\n\n\nMert Bekir\nKaplan\nmert_kaplan@hacettepe.edu.tr\n2000-07-18\n\n\nAhad Tanay\nUyar\ntanayuyar@hacettepe.edu.tr\n2001-01-12\n\n\nDilan Su\nFırat\nsufirat@hacettepe.edu.tr\n2000-06-09\n\n\nMiray Elif\nErdemli\nmirayerdemli@hacettepe.edu.tr\n1999-02-18\n\n\nMert\nÇetinkanat\nmertcetinkanat@hacettepe.edu.tr\n2001-10-05\n\n\nJale Begüm\nBahçekapılı\nbegumbahcekapili@hacettepe.edu.tr\n2002-09-16\n\n\nSena Nur\nEnşici\nsenaensici@hacettepe.edu.tr\n2000-03-10\n\n\nArda\nTürkan\nardaturkan@hacettepe.edu.tr\n2002-01-17\n\n\nAyşenur\nEren\naysenur.eren@hacettepe.edu.tr\n2001-05-23",
+    "title": "Data Ciphers Database",
+    "section": "1 Team Members",
+    "text": "1 Team Members\n\n\nShow the code\n# Define the SQL query\nsql_query &lt;- \"SELECT first_name, last_name, email, birthdate FROM team_members;\"\n\n# Execute the SQL query and retrieve the results\nresults &lt;- dbGetQuery(db_connection, sql_query)\n\n# Display the results\nkable(results)\n\n\n\n\n\n\n\n\n\n\n\nfirst_name\nlast_name\nemail\nbirthdate\n\n\n\n\nMert Bekir\nKaplan\nmert_kaplan@hacettepe.edu.tr\n2000-07-18\n\n\nAhad Tanay\nUyar\ntanayuyar@hacettepe.edu.tr\n2001-01-12\n\n\nDilan Su\nFırat\nsufirat@hacettepe.edu.tr\n2000-06-09\n\n\nMiray Elif\nErdemli\nmirayerdemli@hacettepe.edu.tr\n1999-02-18\n\n\nMert\nÇetinkanat\nmertcetinkanat@hacettepe.edu.tr\n2001-10-05\n\n\nJale Begüm\nBahçekapılı\nbegumbahcekapili@hacettepe.edu.tr\n2002-09-16\n\n\nSena Nur\nEnşici\nsenaensici@hacettepe.edu.tr\n2000-03-10\n\n\nArda\nTürkan\nardaturkan@hacettepe.edu.tr\n2002-01-17\n\n\nAyşenur\nEren\naysenur.eren@hacettepe.edu.tr\n2001-05-23",
     "crumbs": [
-      "Coming Soon!"
+      "Data Ciphers Database"
     ]
   },
   {
     "objectID": "emu415/emu415-database.html#distribution-of-team-members-across-joining-years",
     "href": "emu415/emu415-database.html#distribution-of-team-members-across-joining-years",
-    "title": "Coming Soon!",
-    "section": "Distribution of Team Members Across Joining Years",
-    "text": "Distribution of Team Members Across Joining Years\n\n\nShow the code\n# Define the SQL query\nsql_query &lt;- \"SELECT join_year, COUNT(*) AS num_members FROM team_members GROUP BY join_year;\"\n\n# Execute the SQL query and retrieve the results\nresults &lt;- dbGetQuery(db_connection, sql_query)\n\n# Convert join_year to factor to maintain order in the plot\nresults$join_year &lt;- factor(results$join_year, levels = unique(results$join_year))\n\n# Plot the distribution of team members across different joining years\nggplot(results, aes(x = join_year, y = num_members)) +\n  geom_bar(stat = \"identity\", fill = \"skyblue\") +\n  labs(title = \"Distribution of Team Members Across Joining Years\",\n       x = \"Joining Year\",\n       y = \"Number of Team Members\") +\n  theme_minimal()",
+    "title": "Data Ciphers Database",
+    "section": "2 Distribution of Team Members Across Joining Years",
+    "text": "2 Distribution of Team Members Across Joining Years\n\n\nShow the code\n# Define the SQL query\nsql_query &lt;- \"SELECT join_year, COUNT(*) AS num_members FROM team_members GROUP BY join_year;\"\n\n# Execute the SQL query and retrieve the results\nresults &lt;- dbGetQuery(db_connection, sql_query)\n\n# Convert join_year to factor to maintain order in the plot\nresults$join_year &lt;- factor(results$join_year, levels = unique(results$join_year))\n\n# Plot the distribution of team members across different joining years\nggplot(results, aes(x = join_year, y = num_members)) +\n  geom_bar(stat = \"identity\", fill = \"skyblue\") +\n  labs(title = \"Distribution of Team Members Across Joining Years\",\n       x = \"Joining Year\",\n       y = \"Number of Team Members\") +\n  theme_minimal()",
     "crumbs": [
-      "Coming Soon!"
+      "Data Ciphers Database"
     ]
   },
   {
     "objectID": "emu415/emu415-database.html#age-distribution-of-team-members",
     "href": "emu415/emu415-database.html#age-distribution-of-team-members",
-    "title": "Coming Soon!",
-    "section": "Age Distribution of Team Members",
-    "text": "Age Distribution of Team Members\n\n\nShow the code\n# Define the SQL query to fetch birthdate data\nsql_query &lt;- \"SELECT birthdate FROM team_members;\"\n\n# Execute the SQL query and retrieve the birthdate data\nbirthdate_data &lt;- dbGetQuery(db_connection, sql_query)\n\n# Convert birthdate to date type\nbirthdate_data$birthdate &lt;- as.Date(birthdate_data$birthdate)\n\n# Calculate age from birthdate\nbirthdate_data$age &lt;- as.numeric(difftime(Sys.Date(), birthdate_data$birthdate, units = \"days\")) / 365.25\n\n# Plot age distribution\nggplot(birthdate_data, aes(x = age)) +\n  geom_histogram(binwidth = 1, fill = \"skyblue\", color = \"black\") +\n  labs(title = \"Age Distribution of Team Members\",\n       x = \"Age\",\n       y = \"Frequency\") +\n  theme_minimal()",
+    "title": "Data Ciphers Database",
+    "section": "3 Age Distribution of Team Members",
+    "text": "3 Age Distribution of Team Members\n\n\nShow the code\n# Define the SQL query to fetch birthdate data\nsql_query &lt;- \"SELECT birthdate FROM team_members;\"\n\n# Execute the SQL query and retrieve the birthdate data\nbirthdate_data &lt;- dbGetQuery(db_connection, sql_query)\n\n# Convert birthdate to date type\nbirthdate_data$birthdate &lt;- as.Date(birthdate_data$birthdate)\n\n# Calculate age from birthdate\nbirthdate_data$age &lt;- as.numeric(difftime(Sys.Date(), birthdate_data$birthdate, units = \"days\")) / 365.25\n\n# Plot age distribution\nggplot(birthdate_data, aes(x = age)) +\n  geom_histogram(binwidth = 1, fill = \"skyblue\", color = \"black\") +\n  labs(title = \"Age Distribution of Team Members\",\n       x = \"Age\",\n       y = \"Frequency\") +\n  theme_minimal()",
     "crumbs": [
-      "Coming Soon!"
+      "Data Ciphers Database"
     ]
   },
   {

@@ -1,5 +1,18 @@
 ---
-title: 'Coming Soon!'
+styles:
+  styles.css
+format:
+  html:
+    title: 'Data Ciphers Database'
+    toc: true
+    toc-depth: 6
+    toc-title: Contents
+    toc-location: left
+    toc-expand: 5
+    smooth-scroll: true
+    anchor-sections: true
+    include-after-body: abbrv_toc.html
+    number-sections: true
 ---
 
 Libraries and connection parameters are provided here.
