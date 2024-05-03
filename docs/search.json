@@ -1,0 +1,103 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Ciphers Official Website",
+    "section": "",
+    "text": "Data Ciphers\n\n\nHealth is the wealth of data. Join us at Data Ciphers as we explore the rich tapestry of well-being through the lens of analytics.\n\nHi! 😄 Welcome to our project webpage.\nStay healthy and stay tuned to follow our journey through the vast world of data.\n\n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "emu430/emu430-data.html#general-information-about-the-data",
+    "href": "emu430/emu430-data.html#general-information-about-the-data",
+    "title": "Data",
+    "section": "1 General Information About the Data",
+    "text": "1 General Information About the Data\n\nThe Türkiye Health Survey wants to find out how healthy people are and collect important information about key health measures. It helps compare health internationally and gives insights into what health needs a country has for its development.\n\nData source: Türkiye Health Survey 2022\n\n1.1 Why We Selected This Data\n\nWe picked the ‘Türkiye Health Survey’ data set for our EMU430 course because it’s interesting and fits well with what we’re learning. This data set gives us a lot of information about health in Turkey. We can study things like how people take care of their health, how much alcohol they drink, what common diseases there are, and the body mass index of individuals. It’s a good choice for our course because it covers a lot of important health topics in Turkey.\n\n\n\n1.2 Our Objectives\n\nOur main goal is to study how people’s health changes with age and differs between men and women. We want to understand how behaviors and diseases vary based on these factors. By doing this research, we hope to gather useful information that can be used to create better health policies and strategies.\nOur plan is to use numbers and graphs to look for patterns and differences in the data. We believe that showing our findings visually will make them easier to understand. But before we start, we need to make sure the information we have is correct and complete. We’ll check and fix any mistakes or missing details to ensure that our results can be trusted. Following this plan, we aim to make our project’s goals, the data we’re using, and how we’re studying it clear. This will set a strong foundation for our project to move forward successfully.",
+    "crumbs": [
+      "Data"
+    ]
+  },
+  {
+    "objectID": "emu430/emu430-data.html#importing-and-preprocessing-data-our-approach",
+    "href": "emu430/emu430-data.html#importing-and-preprocessing-data-our-approach",
+    "title": "Data",
+    "section": "2 Importing and Preprocessing Data: Our Approach",
+    "text": "2 Importing and Preprocessing Data: Our Approach\n\nBefore importing our data, we manually cleaned it by removing Turkish text and unnecessary information. Then, we used the ‘dplyr’ and ‘tidyr’ packages to improve our understanding of the data. The relevant code is provided below.",
+    "crumbs": [
+      "Data"
+    ]
+  },
+  {
+    "objectID": "emu415.html",
+    "href": "emu415.html",
+    "title": "EMU415 Database Management Systems",
+    "section": "",
+    "text": "Back to top",
+    "crumbs": [
+      "EMU415 Database Management Systems"
+    ]
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "Analysis",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "emu415/emu415-database.html",
+    "href": "emu415/emu415-database.html",
+    "title": "1 Database",
+    "section": "",
+    "text": "Our database aims to facilitate the process of selecting and finding companies for internships for students of Industrial Engineering at Hacettepe University. To achieve this, we gather data and evaluations from students who have previously completed their internships at these companies. The information in our database allows students to know what they can expect to experience and what to expect within the opportunities provided by these companies. In addition to evaluations, our database also includes information about the application process for internship programs offered by relevant companies.\n\n\n\n\n\n\nCompany Search: Users can search for companies offering internships based on various criteria such as location, industry, duration, and specific requirements.\nStudent Evaluation System: A platform where students can provide feedback and evaluations on their internship experiences, including ratings for different aspects such as work environment, mentor-ship, learning opportunities, and overall satisfaction.\nCompany Profiles: Detailed profiles for each company, including information about their internship programs, requirements, past interns’ experiences, and any additional benefits offered.\nInternship Opportunities: A section dedicated to listing current internship opportunities available at different companies, with details on application websites, requirements, and how to apply.\nAnalytics and Insights: Data analytics features to provide insights and trends based on the evaluations and feedback collected from students, helping to identify top-rated companies, popular internship programs, and areas for improvement.\n\n\n\n\n\n\nStudent\n\nstudent_id (Primary Key)\nfirst_name\nlast_name\nemail\njoin_year\ngpa\nwebsite\n\nCompany\n\ncompany_id (Primary Key)\ncompany_name\nindustry\nlocation\ncontact_info\napp_website\nworking_hours\ntransportation_status \n\nInternship\n\ninternship_id (Primary Key)\nstudent_id (Foreign Key)\ncompany_id (Foreign Key)\ndepartment\nduration\nstart_date\nend_date\nintern_type\nrequirements\nstatus\nincome\n\nRating\n\nrating_id (Primary Key)\ninternship_id (Foreign Key)\ntransportation_rating\nwork_env_rating\nlearning_opp_rating\nfood_rating\nhr_rating\nmentorship_rating\noverall_rating\ncomments\n\n\n\n\n\n\n\ninternships belongs to company: One-to-many relationship, each company can offer multiple internships, but each internship is associated with only one company.\ninternship belongs to student: One-to-many relationship, one student can have multiple internships, but each internship is associated with only one student.\nrating belongs to internship: One-to-one relationship, each internship has one rating, and each rating is associated with only one internship.\nstudent to rating through internship: One-to-many relationship, each student can have many ratings as well as internships, but each rating can only have one student and one internship.\ncompany to rating through internship: One to many relationship, each company can have many ratings as well as internships, but each rating can only have one company and one internship.",
+    "crumbs": [
+      "Database"
+    ]
+  },
+  {
+    "objectID": "emu415/emu415-database.html#emu-hacettepe-internship-informing-feedback-system",
+    "href": "emu415/emu415-database.html#emu-hacettepe-internship-informing-feedback-system",
+    "title": "1 Database",
+    "section": "",
+    "text": "Our database aims to facilitate the process of selecting and finding companies for internships for students of Industrial Engineering at Hacettepe University. To achieve this, we gather data and evaluations from students who have previously completed their internships at these companies. The information in our database allows students to know what they can expect to experience and what to expect within the opportunities provided by these companies. In addition to evaluations, our database also includes information about the application process for internship programs offered by relevant companies.\n\n\n\n\n\n\nCompany Search: Users can search for companies offering internships based on various criteria such as location, industry, duration, and specific requirements.\nStudent Evaluation System: A platform where students can provide feedback and evaluations on their internship experiences, including ratings for different aspects such as work environment, mentor-ship, learning opportunities, and overall satisfaction.\nCompany Profiles: Detailed profiles for each company, including information about their internship programs, requirements, past interns’ experiences, and any additional benefits offered.\nInternship Opportunities: A section dedicated to listing current internship opportunities available at different companies, with details on application websites, requirements, and how to apply.\nAnalytics and Insights: Data analytics features to provide insights and trends based on the evaluations and feedback collected from students, helping to identify top-rated companies, popular internship programs, and areas for improvement.\n\n\n\n\n\n\nStudent\n\nstudent_id (Primary Key)\nfirst_name\nlast_name\nemail\njoin_year\ngpa\nwebsite\n\nCompany\n\ncompany_id (Primary Key)\ncompany_name\nindustry\nlocation\ncontact_info\napp_website\nworking_hours\ntransportation_status \n\nInternship\n\ninternship_id (Primary Key)\nstudent_id (Foreign Key)\ncompany_id (Foreign Key)\ndepartment\nduration\nstart_date\nend_date\nintern_type\nrequirements\nstatus\nincome\n\nRating\n\nrating_id (Primary Key)\ninternship_id (Foreign Key)\ntransportation_rating\nwork_env_rating\nlearning_opp_rating\nfood_rating\nhr_rating\nmentorship_rating\noverall_rating\ncomments\n\n\n\n\n\n\n\ninternships belongs to company: One-to-many relationship, each company can offer multiple internships, but each internship is associated with only one company.\ninternship belongs to student: One-to-many relationship, one student can have multiple internships, but each internship is associated with only one student.\nrating belongs to internship: One-to-one relationship, each internship has one rating, and each rating is associated with only one internship.\nstudent to rating through internship: One-to-many relationship, each student can have many ratings as well as internships, but each rating can only have one student and one internship.\ncompany to rating through internship: One to many relationship, each company can have many ratings as well as internships, but each rating can only have one company and one internship.",
+    "crumbs": [
+      "Database"
+    ]
+  },
+  {
+    "objectID": "emu430/emu430-analysis.html",
+    "href": "emu430/emu430-analysis.html",
+    "title": "1 Analysis",
+    "section": "",
+    "text": "1 Analysis\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Analysis"
+    ]
+  },
+  {
+    "objectID": "emu430.html#türkiye-health-survey-2022",
+    "href": "emu430.html#türkiye-health-survey-2022",
+    "title": "Team Members",
+    "section": "Türkiye Health Survey, 2022",
+    "text": "Türkiye Health Survey, 2022\n\n\n\n\n\n\nThe Türkiye Health Survey aims to uncover people’s overall health and gather information about key health indicators that are important for understanding a country’s development. This study is designed to facilitate international comparisons and provide insights into national health needs. (TurkStat, 2023)1\nIn this study, we are focused on analyzing the distribution of main diseases/health problems, status of alcohol use and body mass indexes among individuals by sex.",
+    "crumbs": [
+      "Team Members"
+    ]
+  },
+  {
+    "objectID": "emu430.html#footnotes",
+    "href": "emu430.html#footnotes",
+    "title": "Team Members",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nTurkish Statistical Institute. (2023). Türkiye Health Survey, 2022. https://data.tuik.gov.tr/Bulten/Index?p=Turkiye-Health-Survey-2022-49747↩︎",
+    "crumbs": [
+      "Team Members"
+    ]
+  }
+]
