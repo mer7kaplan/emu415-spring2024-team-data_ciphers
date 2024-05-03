@@ -31,6 +31,14 @@ website:
       contents:
         - emu430.qmd
         - emu430/emu430-data.qmd
+        - emu430/emu430-analysis.qmd
+    - title: "EMU415 Database Management Systems"
+      style: "docked"
+      search: true
+      contents:
+        - emu415.qmd
+        - emu415/emu415-database.qmd
+
   page-navigation: true
   back-to-top-navigation: true
   page-footer:

@@ -1,14 +1,9 @@
 ---
 styles:
   styles.css
-sidebar: false
 ---
 
-::: {style="text-align: center"}
-::: {style="font-family: fantasy; font-size: 50px; font-style: normal; font-variant: small-caps; font-weight: 700; line-height: 39.6px; color: #333333;"}
-Home
-:::
-:::
+![](images/Data Ciphers Logo.png){fig-align="center" width="250"}
 
 # Team Members {style="text-align: center"}
 
