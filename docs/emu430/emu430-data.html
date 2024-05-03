@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -176,7 +210,18 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#why-we-selected-this-data" id="toc-why-we-selected-this-data" class="nav-link" data-scroll-target="#why-we-selected-this-data"><span class="header-section-number">1.1</span> Why We Selected This Data</a></li>
   <li><a href="#our-objectives" id="toc-our-objectives" class="nav-link" data-scroll-target="#our-objectives"><span class="header-section-number">1.2</span> Our Objectives</a></li>
   </ul></li>
-  <li><a href="#importing-and-preprocessing-data-our-approach" id="toc-importing-and-preprocessing-data-our-approach" class="nav-link" data-scroll-target="#importing-and-preprocessing-data-our-approach"><span class="header-section-number">2</span> Importing and Preprocessing Data: Our Approach</a></li>
+  <li><a href="#importing-and-preprocessing-data-our-approach" id="toc-importing-and-preprocessing-data-our-approach" class="nav-link" data-scroll-target="#importing-and-preprocessing-data-our-approach"><span class="header-section-number">2</span> Importing and Preprocessing Data: Our Approach</a>
+  <ul>
+  <li><a href="#percentage-of-health-problems-in-the-last-12-months-by-sex-2016-2022" id="toc-percentage-of-health-problems-in-the-last-12-months-by-sex-2016-2022" class="nav-link" data-scroll-target="#percentage-of-health-problems-in-the-last-12-months-by-sex-2016-2022"><span class="header-section-number">2.1</span> <strong>Percentage of Health Problems in the Last 12 Months by Sex, 2016-2022</strong></a></li>
+  <li><a href="#percentage-of-status-of-alcohol-use-by-sex-and-age-group-2016-2022" id="toc-percentage-of-status-of-alcohol-use-by-sex-and-age-group-2016-2022" class="nav-link" data-scroll-target="#percentage-of-status-of-alcohol-use-by-sex-and-age-group-2016-2022"><span class="header-section-number">2.2</span> <strong>Percentage of Status of Alcohol Use by Sex and Age Group, 2016-2022</strong></a></li>
+  <li><a href="#body-mass-index-distribution-of-individuals-by-sex-2008-2022" id="toc-body-mass-index-distribution-of-individuals-by-sex-2008-2022" class="nav-link" data-scroll-target="#body-mass-index-distribution-of-individuals-by-sex-2008-2022"><span class="header-section-number">2.3</span> <strong>Body Mass Index Distribution of Individuals by Sex, 2008-2022</strong></a></li>
+  </ul></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">3</span> Exploratory Data Analysis</a>
+  <ul>
+  <li><a href="#dataset-1-the-percentage-of-main-diseaseshealth-problems-declared-by-individuals-in-the-last-12-months-by-sex-2016-2022" id="toc-dataset-1-the-percentage-of-main-diseaseshealth-problems-declared-by-individuals-in-the-last-12-months-by-sex-2016-2022" class="nav-link" data-scroll-target="#dataset-1-the-percentage-of-main-diseaseshealth-problems-declared-by-individuals-in-the-last-12-months-by-sex-2016-2022"><span class="header-section-number">3.1</span> Dataset 1 : The Percentage of Main Diseases/Health Problems Declared by Individuals in the Last 12 Months by Sex, 2016-2022</a></li>
+  <li><a href="#data-set-2-the-percentage-of-individuals-status-of-alcohol-use-by-sex-and-age-group-2016-2022" id="toc-data-set-2-the-percentage-of-individuals-status-of-alcohol-use-by-sex-and-age-group-2016-2022" class="nav-link" data-scroll-target="#data-set-2-the-percentage-of-individuals-status-of-alcohol-use-by-sex-and-age-group-2016-2022"><span class="header-section-number">3.2</span> Data Set 2 : The Percentage of Individuals’ Status of Alcohol Use by Sex and Age Group, 2016-2022</a></li>
+  <li><a href="#data-set-3-body-mass-index-distribution-of-individuals-by-sex-2008-2022" id="toc-data-set-3-body-mass-index-distribution-of-individuals-by-sex-2008-2022" class="nav-link" data-scroll-target="#data-set-3-body-mass-index-distribution-of-individuals-by-sex-2008-2022"><span class="header-section-number">3.3</span> Data Set 3 : Body Mass Index Distribution of Individuals by Sex, 2008-2022</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -236,8 +281,504 @@ ul.task-list li input[type="checkbox"] {
 <div style="text-align: justify">
 <p>Before importing our data, we manually cleaned it by removing Turkish text and unnecessary information. Then, we used the ‘<em>dplyr</em>’ and ‘<em>tidyr</em>’ packages to improve our understanding of the data. The relevant code is provided below.</p>
 </div>
+<p>This study includes three data-sets:</p>
+<section id="percentage-of-health-problems-in-the-last-12-months-by-sex-2016-2022" class="level3" data-toc-text="Dataset 1" data-number="2.1">
+<h3 data-toc-text="Dataset 1" data-number="2.1" class="anchored" data-anchor-id="percentage-of-health-problems-in-the-last-12-months-by-sex-2016-2022"><span class="header-section-number">2.1</span> <strong>Percentage of Health Problems in the Last 12 Months by Sex, 2016-2022</strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(dplyr))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data_1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"tidydataset1.xls"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data_1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Diseases"</span>, <span class="st">"men_2016"</span>, <span class="st">"women_2016"</span>, <span class="st">"men_2019"</span>, <span class="st">"women_2019"</span>, <span class="st">"men_2022"</span>, <span class="st">"women_2022"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>data_1_longer <span class="ot">&lt;-</span> data_1 <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="fu">c</span>(<span class="st">"men"</span>, <span class="st">"women"</span>)),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Gender"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"Percentage"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(Gender, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Gender"</span>, <span class="st">"Year"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Diseases) <span class="sc">%&gt;%</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(Year, Percentage), as.numeric) <span class="sc">%&gt;%</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diseases =</span> <span class="fu">gsub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">n"</span>, <span class="st">""</span>, Diseases))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu430-fall2023-team-data_ciphers/raw/master/tidy_dataset_1.RData" class="download-button">Click here to download the associated .RData file for Dataset 1.</a></p>
+</section>
+<section id="percentage-of-status-of-alcohol-use-by-sex-and-age-group-2016-2022" class="level3" data-toc-text="Dataset 2" data-number="2.2">
+<h3 data-toc-text="Dataset 2" data-number="2.2" class="anchored" data-anchor-id="percentage-of-status-of-alcohol-use-by-sex-and-age-group-2016-2022"><span class="header-section-number">2.2</span> <strong>Percentage of Status of Alcohol Use by Sex and Age Group, 2016-2022</strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(dplyr))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>data_2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"tidydataset2.xls"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data_2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"men_2016"</span>, <span class="st">"women_2016"</span>, <span class="st">"men_2019"</span>, <span class="st">"women_2019"</span>, <span class="st">"men_2022"</span>, <span class="st">"women_2022"</span>, <span class="st">"usage"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>data_2_longer <span class="ot">&lt;-</span> data_2 <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="fu">c</span>(<span class="st">"men"</span>, <span class="st">"women"</span>)),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"gender"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"rate"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(gender, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"year"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(age) <span class="sc">%&gt;%</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(year, rate), as.numeric) <span class="sc">%&gt;%</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu430-fall2023-team-data_ciphers/raw/master/tidy_dataset_2.RData" class="download-button">Click here to download the associated .RData file for Dataset 2.</a></p>
+</section>
+<section id="body-mass-index-distribution-of-individuals-by-sex-2008-2022" class="level3" data-toc-text="Dataset 3" data-number="2.3">
+<h3 data-toc-text="Dataset 3" data-number="2.3" class="anchored" data-anchor-id="body-mass-index-distribution-of-individuals-by-sex-2008-2022"><span class="header-section-number">2.3</span> <strong>Body Mass Index Distribution of Individuals by Sex, 2008-2022</strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(dplyr))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>data_3 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"tidydataset3.xls"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data_3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Sex"</span>, <span class="st">"Underweight"</span>, <span class="st">"Normal_weight"</span>, <span class="st">"Pre_Obese"</span>, <span class="st">"Obese"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>data_3_long <span class="ot">&lt;-</span> data_3 <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Underweight, Normal_weight, Pre_Obese, Obese),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Category"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"Percentage"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex_group =</span> <span class="fu">ifelse</span>(Sex <span class="sc">==</span> <span class="st">"Total"</span>, <span class="st">"Total"</span>, <span class="st">"Individual"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex_group) <span class="sc">%&gt;%</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Sex <span class="sc">!=</span> <span class="st">"Total"</span> <span class="sc">|</span> <span class="fu">n</span>() <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>sex_group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><a href="https://github.com/emu-hacettepe-analytics/emu430-fall2023-team-data_ciphers/blob/master/tidy_dataset_3.RData" class="download-button">Click here to download the associated .RData file for Dataset 3.</a></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the data pre-processing phase, we used ChatGPT to provide necessary functions and increase the quality of our content. Some of the functions are: “<em>mutate_at</em>”, “<em>na.omit</em>”, “<em>gsub</em>”.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="exploratory-data-analysis" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">3</span> Exploratory Data Analysis</h2>
+<p>In our project, we are working on three data sets, all of which were sourced from the <em>Turkish Statistical Institute’s</em> <strong><em>Türkiye Health Survey</em></strong> that was conducted in 2022.</p>
+<section id="dataset-1-the-percentage-of-main-diseaseshealth-problems-declared-by-individuals-in-the-last-12-months-by-sex-2016-2022" class="level3" data-toc-text="Dataset 1" data-number="3.1">
+<h3 data-toc-text="Dataset 1" data-number="3.1" class="anchored" data-anchor-id="dataset-1-the-percentage-of-main-diseaseshealth-problems-declared-by-individuals-in-the-last-12-months-by-sex-2016-2022"><span class="header-section-number">3.1</span> Dataset 1 : The Percentage of Main Diseases/Health Problems Declared by Individuals in the Last 12 Months by Sex, 2016-2022</h3>
+<p>This data set showcases the percentage of health problems by sex. Only people over the age of 15 were considered for the study, and Alzheimer was evaluated for individuals in the 65+ age group.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>The Percentage of Main Diseases/Health Problems Declared by Individuals in the Last 12 Months by Sex</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Diseases</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Gender</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Allergy</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">7.540591</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Allergy</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">8.926597</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Allergy</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">6.566730</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Allergy</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">13.900246</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Allergy</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">15.621691</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Allergy</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">12.518126</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Alzheimer</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">5.095686</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Alzheimer</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">5.955258</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Alzheimer</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">5.069767</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Alzheimer</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">6.065594</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Alzheimer</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">6.008264</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Alzheimer</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">5.824677</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Arthrosis</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">4.858361</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Arthrosis</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">7.636946</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Arthrosis</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">4.863095</td>
+</tr>
+</tbody>
+</table>
 
 
+</div>
+</div>
+</div>
+<div style="text-align: justify">
+<p>The first column, titled <em>Diseases</em> corresponds to the diseases, and the following columns represent the gender of the individual, the year the data was collected and the percentage information respectively. If we take a look at the visualization of the data as presented below we can see that low back problems are consistently what causes the most issues, in both men and women. In general, women have declared their health problems more than men for all years that were considered for the study.</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2016_dataset_1.png" class="img-fluid figure-img"></p>
+<figcaption>The distribution of declared health problems for both genders, 2016</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2019_dataset_1.png" class="img-fluid figure-img"></p>
+<figcaption>The distribution of declared health problems for both genders, 2019</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2022_dataset_1.png" class="img-fluid figure-img"></p>
+<figcaption>The distribution of declared health problems for both genders, 2022</figcaption>
+</figure>
+</div>
+</section>
+<section id="data-set-2-the-percentage-of-individuals-status-of-alcohol-use-by-sex-and-age-group-2016-2022" class="level3" data-toc-text="Dataset 2" data-number="3.2">
+<h3 data-toc-text="Dataset 2" data-number="3.2" class="anchored" data-anchor-id="data-set-2-the-percentage-of-individuals-status-of-alcohol-use-by-sex-and-age-group-2016-2022"><span class="header-section-number">3.2</span> Data Set 2 : The Percentage of Individuals’ Status of Alcohol Use by Sex and Age Group, 2016-2022</h3>
+<p>This data set showcases the percentage of individuals’ alcohol consumption status by sex and age group.</p>
+<p>The first column of the table below shows the various age ranges from the study, starting from age 15 and going all the way up to 75+.</p>
+<div style="text-align: justify">
+<p>The second column, titled <em>usage</em>, has three different field values: *Consumers: Indicates the individual partakes in regular alcohol consumption. *Doesn’t consume: Means the individual has consumed alcohol before, but not anymore/not regularly. *Never consume: Indicates the individual has never consumed alcohol before.</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>The Percentage of Individuals' Status of Alcohol Use by Sex and Age Group</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Age</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">User Type</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Gender</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Consumers</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">13.0800576</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Consumers</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">16.3688405</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Consumers</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">11.5901638</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Consumers</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">5.4064093</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Consumers</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">6.2480878</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Consumers</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">4.9318588</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Doesn't consume</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">5.9217499</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Doesn't consume</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">5.7362602</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Doesn't consume</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">2.3365367</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Doesn't consume</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">3.9478235</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Doesn't consume</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">3.0067650</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Doesn't consume</td>
+<td style="text-align: center;">women</td>
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">0.8584534</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Never consume</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">80.9981924</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Never consume</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">77.8948993</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15-24</td>
+<td style="text-align: center;">Never consume</td>
+<td style="text-align: center;">men</td>
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">86.0732995</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+<p>The third column shows the gender of the individuals that took part in the study, followed by the year on column 4 and the percentages on column 5.</p>
+<p>We can further understand this data by visualizing it via a bar chart, as shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="chart_dataset_2.png" class="img-fluid figure-img"></p>
+<figcaption>The distribution of alcohol consumption habits for both genders; 2016, 2019, 2022</figcaption>
+</figure>
+</div>
+</section>
+<section id="data-set-3-body-mass-index-distribution-of-individuals-by-sex-2008-2022" class="level3" data-toc-text="Dataset 3" data-number="3.3">
+<h3 data-toc-text="Dataset 3" data-number="3.3" class="anchored" data-anchor-id="data-set-3-body-mass-index-distribution-of-individuals-by-sex-2008-2022"><span class="header-section-number">3.3</span> Data Set 3 : Body Mass Index Distribution of Individuals by Sex, 2008-2022</h3>
+<div style="text-align: justify">
+<p>This data set showcases the body mass index distribution of male and female individuals, as well as a total for the year of each sub-study. The data here was collected every two years starting from 2008, and ending at 2022.</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Body Mass Index Distribution of Individuals by Sex</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Sex</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Category</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2008</td>
+<td style="text-align: center;">Male</td>
+<td style="text-align: center;">Underweight</td>
+<td style="text-align: center;">2.70</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2008</td>
+<td style="text-align: center;">Male</td>
+<td style="text-align: center;">Normal_weight</td>
+<td style="text-align: center;">48.10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2008</td>
+<td style="text-align: center;">Male</td>
+<td style="text-align: center;">Pre_Obese</td>
+<td style="text-align: center;">36.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2008</td>
+<td style="text-align: center;">Male</td>
+<td style="text-align: center;">Obese</td>
+<td style="text-align: center;">12.30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2008</td>
+<td style="text-align: center;">Female</td>
+<td style="text-align: center;">Underweight</td>
+<td style="text-align: center;">5.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2008</td>
+<td style="text-align: center;">Female</td>
+<td style="text-align: center;">Normal_weight</td>
+<td style="text-align: center;">48.20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2008</td>
+<td style="text-align: center;">Female</td>
+<td style="text-align: center;">Pre_Obese</td>
+<td style="text-align: center;">27.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2008</td>
+<td style="text-align: center;">Female</td>
+<td style="text-align: center;">Obese</td>
+<td style="text-align: center;">18.50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2010</td>
+<td style="text-align: center;">Male</td>
+<td style="text-align: center;">Underweight</td>
+<td style="text-align: center;">3.46</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2010</td>
+<td style="text-align: center;">Male</td>
+<td style="text-align: center;">Normal_weight</td>
+<td style="text-align: center;">46.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2010</td>
+<td style="text-align: center;">Male</td>
+<td style="text-align: center;">Pre_Obese</td>
+<td style="text-align: center;">37.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2010</td>
+<td style="text-align: center;">Male</td>
+<td style="text-align: center;">Obese</td>
+<td style="text-align: center;">13.16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2010</td>
+<td style="text-align: center;">Female</td>
+<td style="text-align: center;">Underweight</td>
+<td style="text-align: center;">5.93</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2010</td>
+<td style="text-align: center;">Female</td>
+<td style="text-align: center;">Normal_weight</td>
+<td style="text-align: center;">44.73</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2010</td>
+<td style="text-align: center;">Female</td>
+<td style="text-align: center;">Pre_Obese</td>
+<td style="text-align: center;">28.39</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+<p>The first column has year information. The second column indicates whether the individual is male or female. <em>Category</em> column has four field values:</p>
+<ul>
+<li><p>Underweight</p></li>
+<li><p>Normal weight</p></li>
+<li><p>Pre-obese</p></li>
+<li><p>Obese</p></li>
+</ul>
+<p>The last column showcases the percentage information.</p>
+
+
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
