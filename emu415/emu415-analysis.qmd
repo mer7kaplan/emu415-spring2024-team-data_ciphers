@@ -76,11 +76,13 @@ results <- dbGetQuery(db_connection, query)
 # Reverse the order of the results dataframe
 results <- results[order(-results$overall_rating), ]
 
+kable(head(results, 10))
+
 # Plot the results using plotly
 plot_ly(results, x = ~company_name, y = ~overall_rating, type = 'bar', name = 'Overall Rating') %>%
   layout(title = "Overall Rating per Company",
          xaxis = list(title = "", tickangle = 45, tickfont = list(size = 10), categoryorder = "array", categoryarray = ~company_name),
-         yaxis = list(title = "Overall Rating"))
+         yaxis = list(title = "Overall Rating", range = c(1, 5)))
 ```
 
 # Number of Interns in Each Company
@@ -91,25 +93,35 @@ plot_ly(results, x = ~company_name, y = ~overall_rating, type = 'bar', name = 'O
 
 # Write your SQL query to count the number of interns per company
 query <- "
-SELECT company_name, COUNT(*) AS num_interns
+SELECT 
+    companies.company_name,
+    COUNT(*) AS num_interns,
+    ROUND(AVG(r.transportation_rating), 2) AS avg_transportation_rating,
+    ROUND(AVG(r.work_env_rating), 2) AS avg_work_env_rating,
+    ROUND(AVG(r.learning_opp_rating), 2) AS avg_learning_opp_rating,
+    ROUND(AVG(r.food_rating), 2) AS avg_food_rating,
+    ROUND(AVG(r.hr_rating), 2) AS avg_hr_rating,
+    ROUND(AVG(r.mentor_rating), 2) AS avg_mentor_rating,
+    ROUND((AVG(r.transportation_rating) + AVG(r.work_env_rating) + AVG(r.learning_opp_rating) + AVG(r.food_rating) + AVG(r.hr_rating) + AVG(r.mentor_rating)) / 6, 2) AS overall_rating
 FROM internships
 JOIN companies ON internships.company_id = companies.company_id
-GROUP BY company_name
+LEFT JOIN ratings r ON internships.internship_id = r.internship_id
+GROUP BY companies.company_name
 HAVING COUNT(*) > 1
-ORDER BY num_interns DESC
 "
 
 # Execute the query and fetch the results
-intern_counts <- dbGetQuery(db_connection, query)
+company_results <- dbGetQuery(db_connection, query)
+
+kable(head(company_results, 10))
 
 # Plot the results using plotly
-plot <- plot_ly(intern_counts, x = ~reorder(company_name, -num_interns), y = ~num_interns, type = "bar") %>%
-  layout(title = "Number of Interns (>1) in Each Company",
+plot_ly(company_results, x = ~company_name, y = ~num_interns, type = 'bar', name = 'Number of Interns') %>%
+  add_trace(x = ~company_name, y = ~overall_rating, type = 'scatter', mode = 'lines+markers', name = 'Overall Rating', yaxis = "y2", line = list(shape = 'li', connectgaps = TRUE)) %>%
+  layout(title = "Number of Interns and Overall Rating per Company (with more than 1 intern)",
          xaxis = list(title = "Company Name"),
-         yaxis = list(title = "Number of Interns"))
-
-# Display the plot
-plot
+         yaxis = list(title = "Number of Interns"),
+         yaxis2 = list(title = "Overall Rating", overlaying = "y", side = "right", range = c(0, max(company_results$overall_rating) + 1)))
 ```
 
 # Number of Interns per Industry
@@ -118,11 +130,21 @@ plot
 #| code-fold: true
 #| code-summary: "Show the code"
 
-# Write your SQL query to count the number of interns per industry where the number of interns is greater than 1
+# Write your SQL query to calculate the overall rating per industry
 query <- "
-SELECT c.industry, COUNT(*) AS num_interns
+SELECT 
+    c.industry,
+    COUNT(*) AS num_interns,
+    ROUND(AVG(r.transportation_rating), 2) AS avg_transportation_rating,
+    ROUND(AVG(r.work_env_rating), 2) AS avg_work_env_rating,
+    ROUND(AVG(r.learning_opp_rating), 2) AS avg_learning_opp_rating,
+    ROUND(AVG(r.food_rating), 2) AS avg_food_rating,
+    ROUND(AVG(r.hr_rating), 2) AS avg_hr_rating,
+    ROUND(AVG(r.mentor_rating), 2) AS avg_mentor_rating,
+    ROUND((AVG(r.transportation_rating) + AVG(r.work_env_rating) + AVG(r.learning_opp_rating) + AVG(r.food_rating) + AVG(r.hr_rating) + AVG(r.mentor_rating)) / 6, 2) AS overall_rating
 FROM internships i
 JOIN companies c ON i.company_id = c.company_id
+LEFT JOIN ratings r ON i.internship_id = r.internship_id
 GROUP BY c.industry
 HAVING num_interns > 1
 ORDER BY num_interns DESC;
@@ -134,10 +156,47 @@ results <- dbGetQuery(db_connection, query)
 # Reorder the results dataframe by num_interns in descending order
 results <- results[order(-results$num_interns), ]
 
+kable(head(results, 10))
+
 # Plot the results using plotly
 plot_ly(results, x = ~reorder(industry, -num_interns), y = ~num_interns, type = 'bar', name = 'Number of Interns') %>%
-  layout(title = "Number of Interns per Industry (with more than 1 intern)",
+  add_trace(x = ~reorder(industry, -num_interns), y = ~overall_rating, type = 'scatter', mode = 'lines+markers', name = 'Overall Rating', yaxis = "y2", connectgaps = TRUE) %>%
+  layout(title = "Number of Interns and Overall Rating per Industry (with more than 1 intern)",
          xaxis = list(title = "Industry", categoryorder = "total descending"),
-         yaxis = list(title = "Number of Interns"))
+         yaxis = list(title = "Number of Interns"),
+         yaxis2 = list(title = "Overall Rating", overlaying = "y", side = "right", range = c(0, max(results$overall_rating) + 1)))
+
+```
+
+# Number of Interns per Department
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+
+# Write your SQL query to count the number of interns per department and calculate the average learning opportunity rating
+query <- "
+SELECT 
+    i.department,
+    COUNT(*) AS num_interns,
+    ROUND(AVG(r.learning_opp_rating), 2) AS avg_learning_opp_rating
+FROM internships i
+LEFT JOIN ratings r ON i.internship_id = r.internship_id
+GROUP BY i.department;
+"
+
+# Execute the query and fetch the results
+department_results <- dbGetQuery(db_connection, query)
+
+kable(head(department_results, 10))
+
+# Plot the results using plotly
+plot_ly(department_results, x = ~department, y = ~num_interns, type = 'bar', name = 'Number of Interns') %>%
+  add_trace(x = ~department, y = ~avg_learning_opp_rating, type = 'scatter', mode = 'lines+markers', name = 'Avg Learning Opp Rating', yaxis = "y2", connectgaps = TRUE) %>%
+  layout(title = "Number of Interns and Average Learning Opp Rating per Department",
+         xaxis = list(title = "Department"),
+         yaxis = list(title = "Number of Interns"),
+         yaxis2 = list(title = "Avg Learning Opp Rating", overlaying = "y", side = "right", range = c(0, max(department_results$avg_learning_opp_rating) + 1)))
 
 ```

@@ -223,6 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overall-rating-per-company" id="toc-overall-rating-per-company" class="nav-link active" data-scroll-target="#overall-rating-per-company"><span class="header-section-number">1</span> Overall Rating per Company</a></li>
   <li><a href="#number-of-interns-in-each-company" id="toc-number-of-interns-in-each-company" class="nav-link" data-scroll-target="#number-of-interns-in-each-company"><span class="header-section-number">2</span> Number of Interns in Each Company</a></li>
   <li><a href="#number-of-interns-per-industry" id="toc-number-of-interns-per-industry" class="nav-link" data-scroll-target="#number-of-interns-per-industry"><span class="header-section-number">3</span> Number of Interns per Industry</a></li>
+  <li><a href="#number-of-interns-per-department" id="toc-number-of-interns-per-department" class="nav-link" data-scroll-target="#number-of-interns-per-department"><span class="header-section-number">4</span> Number of Interns per Department</a></li>
   </ul>
 </nav>
 </nav>
@@ -312,15 +313,147 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse the order of the results dataframe</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> results[<span class="fu">order</span>(<span class="sc">-</span>results<span class="sc">$</span>overall_rating), ]</span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results using plotly</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(results, <span class="at">x =</span> <span class="sc">~</span>company_name, <span class="at">y =</span> <span class="sc">~</span>overall_rating, <span class="at">type =</span> <span class="st">'bar'</span>, <span class="at">name =</span> <span class="st">'Overall Rating'</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"Overall Rating per Company"</span>,</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">""</span>, <span class="at">tickangle =</span> <span class="dv">45</span>, <span class="at">tickfont =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">10</span>), <span class="at">categoryorder =</span> <span class="st">"array"</span>, <span class="at">categoryarray =</span> <span class="sc">~</span>company_name),</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Overall Rating"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-303ab1fff706a90cd734" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-303ab1fff706a90cd734">{"x":{"visdat":{"3f041f933927":["function () ","plotlyVisDat"]},"cur_data":"3f041f933927","attrs":{"3f041f933927":{"x":{},"y":{},"name":"Overall Rating","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Overall Rating per Company","xaxis":{"domain":[0,1],"automargin":true,"title":"","tickangle":45,"tickfont":{"size":10},"categoryorder":"array","categoryarray":["Hayat Kimya","Daikin","Otokar","TÜPRAŞ","Aselsan","Baykar Mak.","Otokoç Otomotiv","Roketsan","RND Yazılım ve E-Ticaret","Akdeniz Chemson","Hidromek","Mercedes","TÜBİTAK","Karsan","Volt Elektrik Motorları","Türk Traktör","Türk Havacılık ve Uzay Sanayii(TUSAŞ)","Makine ve Kimya Endüstrisi A.Ş.","ARD Grup Bilişim","Batı KİPAŞ","Nurus","Vestel","Acs Teknoloji","İnşaat ve Emlak Genel Müdürlüğü","Sedat Tahir","SDT","Kazan Soda","Erkunt Sanayi","SAP","SESA Otomotiv"],"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Overall Rating"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Hayat Kimya","Daikin","Otokar","TÜPRAŞ","Aselsan","Baykar Mak.","Otokoç Otomotiv","Roketsan","RND Yazılım ve E-Ticaret","Akdeniz Chemson","Hidromek","Mercedes","TÜBİTAK","Karsan","Volt Elektrik Motorları","Türk Traktör","Türk Havacılık ve Uzay Sanayii(TUSAŞ)","Makine ve Kimya Endüstrisi A.Ş.","ARD Grup Bilişim","Batı KİPAŞ","Nurus","Vestel","Acs Teknoloji","İnşaat ve Emlak Genel Müdürlüğü","Sedat Tahir","SDT","Kazan Soda","Erkunt Sanayi","SAP","SESA Otomotiv"],"y":[5,5,4.8300000000000001,4.6699999999999999,4.5800000000000001,4.4199999999999999,4.3300000000000001,4.3300000000000001,4.3300000000000001,4.3300000000000001,4.3300000000000001,4.1699999999999999,4.1699999999999999,4,4,3.73,3.6899999999999999,3.6699999999999999,3.6699999999999999,3.6699999999999999,3.6699999999999999,3.6699999999999999,3.5,3.5,3.3300000000000001,3.3300000000000001,3.1699999999999999,3.1699999999999999,2.6699999999999999,2.6699999999999999],"name":"Overall Rating","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">company_name</th>
+<th style="text-align: right;">avg_transportation_rating</th>
+<th style="text-align: right;">avg_work_env_rating</th>
+<th style="text-align: right;">avg_learning_opp_rating</th>
+<th style="text-align: right;">avg_food_rating</th>
+<th style="text-align: right;">avg_hr_rating</th>
+<th style="text-align: right;">avg_mentor_rating</th>
+<th style="text-align: right;">overall_rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hayat Kimya</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Daikin</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Otokar</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.83</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TÜPRAŞ</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aselsan</td>
+<td style="text-align: right;">4.75</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">4.25</td>
+<td style="text-align: right;">4.75</td>
+<td style="text-align: right;">4.75</td>
+<td style="text-align: right;">4.58</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baykar Mak.</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Otokoç Otomotiv</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Roketsan</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.75</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.25</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.33</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RND Yazılım ve E-Ticaret</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Akdeniz Chemson</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.33</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results using plotly</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(results, <span class="at">x =</span> <span class="sc">~</span>company_name, <span class="at">y =</span> <span class="sc">~</span>overall_rating, <span class="at">type =</span> <span class="st">'bar'</span>, <span class="at">name =</span> <span class="st">'Overall Rating'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"Overall Rating per Company"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">""</span>, <span class="at">tickangle =</span> <span class="dv">45</span>, <span class="at">tickfont =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">10</span>), <span class="at">categoryorder =</span> <span class="st">"array"</span>, <span class="at">categoryarray =</span> <span class="sc">~</span>company_name),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Overall Rating"</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-4b4330a61d85f1479e87" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-4b4330a61d85f1479e87">{"x":{"visdat":{"39e863024106":["function () ","plotlyVisDat"]},"cur_data":"39e863024106","attrs":{"39e863024106":{"x":{},"y":{},"name":"Overall Rating","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Overall Rating per Company","xaxis":{"domain":[0,1],"automargin":true,"title":"","tickangle":45,"tickfont":{"size":10},"categoryorder":"array","categoryarray":["Hayat Kimya","Daikin","Otokar","TÜPRAŞ","Aselsan","Baykar Mak.","Otokoç Otomotiv","Roketsan","RND Yazılım ve E-Ticaret","Akdeniz Chemson","Hidromek","Mercedes","TÜBİTAK","Karsan","Volt Elektrik Motorları","Türk Traktör","Türk Havacılık ve Uzay Sanayii(TUSAŞ)","Makine ve Kimya Endüstrisi A.Ş.","ARD Grup Bilişim","Batı KİPAŞ","Nurus","Vestel","Acs Teknoloji","İnşaat ve Emlak Genel Müdürlüğü","Sedat Tahir","SDT","Kazan Soda","Erkunt Sanayi","SAP","SESA Otomotiv"],"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Overall Rating","range":[1,5]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Hayat Kimya","Daikin","Otokar","TÜPRAŞ","Aselsan","Baykar Mak.","Otokoç Otomotiv","Roketsan","RND Yazılım ve E-Ticaret","Akdeniz Chemson","Hidromek","Mercedes","TÜBİTAK","Karsan","Volt Elektrik Motorları","Türk Traktör","Türk Havacılık ve Uzay Sanayii(TUSAŞ)","Makine ve Kimya Endüstrisi A.Ş.","ARD Grup Bilişim","Batı KİPAŞ","Nurus","Vestel","Acs Teknoloji","İnşaat ve Emlak Genel Müdürlüğü","Sedat Tahir","SDT","Kazan Soda","Erkunt Sanayi","SAP","SESA Otomotiv"],"y":[5,5,4.8300000000000001,4.6699999999999999,4.5800000000000001,4.4199999999999999,4.3300000000000001,4.3300000000000001,4.3300000000000001,4.3300000000000001,4.3300000000000001,4.1699999999999999,4.1699999999999999,4,4,3.73,3.6899999999999999,3.6699999999999999,3.6699999999999999,3.6699999999999999,3.6699999999999999,3.6699999999999999,3.5,3.5,3.3300000000000001,3.3300000000000001,3.1699999999999999,3.1699999999999999,2.6699999999999999,2.6699999999999999],"name":"Overall Rating","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -329,31 +462,172 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your SQL query to count the number of interns per company</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT company_name, COUNT(*) AS num_interns</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM internships</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">JOIN companies ON internships.company_id = companies.company_id</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY company_name</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">HAVING COUNT(*) &gt; 1</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY num_interns DESC</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the query and fetch the results</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>intern_counts <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(db_connection, query)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results using plotly</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">plot_ly</span>(intern_counts, <span class="at">x =</span> <span class="sc">~</span><span class="fu">reorder</span>(company_name, <span class="sc">-</span>num_interns), <span class="at">y =</span> <span class="sc">~</span>num_interns, <span class="at">type =</span> <span class="st">"bar"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"Number of Interns (&gt;1) in Each Company"</span>,</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Company Name"</span>),</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Number of Interns"</span>))</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your SQL query to count the number of interns per company</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">    companies.company_name,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">    COUNT(*) AS num_interns,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.transportation_rating), 2) AS avg_transportation_rating,</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.work_env_rating), 2) AS avg_work_env_rating,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.learning_opp_rating), 2) AS avg_learning_opp_rating,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.food_rating), 2) AS avg_food_rating,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.hr_rating), 2) AS avg_hr_rating,</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.mentor_rating), 2) AS avg_mentor_rating,</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND((AVG(r.transportation_rating) + AVG(r.work_env_rating) + AVG(r.learning_opp_rating) + AVG(r.food_rating) + AVG(r.hr_rating) + AVG(r.mentor_rating)) / 6, 2) AS overall_rating</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">FROM internships</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="st">JOIN companies ON internships.company_id = companies.company_id</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="st">LEFT JOIN ratings r ON internships.internship_id = r.internship_id</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY companies.company_name</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="st">HAVING COUNT(*) &gt; 1</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the query and fetch the results</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>company_results <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(db_connection, query)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(company_results, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-1709ad84a57477c15f02" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-1709ad84a57477c15f02">{"x":{"visdat":{"3f0446c467fe":["function () ","plotlyVisDat"]},"cur_data":"3f0446c467fe","attrs":{"3f0446c467fe":{"x":{},"y":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Number of Interns (>1) in Each Company","xaxis":{"domain":[0,1],"automargin":true,"title":"Company Name","type":"category","categoryorder":"array","categoryarray":["Türk Havacılık ve Uzay Sanayii(TUSAŞ)","Makine ve Kimya Endüstrisi A.Ş.","Türk Traktör","Aselsan","Roketsan","Baykar Mak.","Mercedes","Nurus","Vestel"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Number of Interns"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Türk Havacılık ve Uzay Sanayii(TUSAŞ)","Türk Traktör","Makine ve Kimya Endüstrisi A.Ş.","Aselsan","Roketsan","Vestel","Baykar Mak.","Mercedes","Nurus"],"y":[7,5,5,4,4,2,2,2,2],"type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 6%">
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">company_name</th>
+<th style="text-align: right;">num_interns</th>
+<th style="text-align: right;">avg_transportation_rating</th>
+<th style="text-align: right;">avg_work_env_rating</th>
+<th style="text-align: right;">avg_learning_opp_rating</th>
+<th style="text-align: right;">avg_food_rating</th>
+<th style="text-align: right;">avg_hr_rating</th>
+<th style="text-align: right;">avg_mentor_rating</th>
+<th style="text-align: right;">overall_rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Aselsan</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.75</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.25</td>
+<td style="text-align: right;">4.75</td>
+<td style="text-align: right;">4.75</td>
+<td style="text-align: right;">4.58</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baykar Mak.</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Makine ve Kimya Endüstrisi A.Ş.</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4.20</td>
+<td style="text-align: right;">3.20</td>
+<td style="text-align: right;">3.40</td>
+<td style="text-align: right;">3.40</td>
+<td style="text-align: right;">4.20</td>
+<td style="text-align: right;">3.60</td>
+<td style="text-align: right;">3.67</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mercedes</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">4.17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nurus</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">3.67</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Roketsan</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.75</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.25</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.33</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Türk Havacılık ve Uzay Sanayii(TUSAŞ)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">4.14</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">3.43</td>
+<td style="text-align: right;">4.14</td>
+<td style="text-align: right;">3.29</td>
+<td style="text-align: right;">3.14</td>
+<td style="text-align: right;">3.69</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Türk Traktör</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4.60</td>
+<td style="text-align: right;">3.20</td>
+<td style="text-align: right;">3.80</td>
+<td style="text-align: right;">4.40</td>
+<td style="text-align: right;">3.40</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">3.73</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vestel</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">3.67</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results using plotly</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(company_results, <span class="at">x =</span> <span class="sc">~</span>company_name, <span class="at">y =</span> <span class="sc">~</span>num_interns, <span class="at">type =</span> <span class="st">'bar'</span>, <span class="at">name =</span> <span class="st">'Number of Interns'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_trace</span>(<span class="at">x =</span> <span class="sc">~</span>company_name, <span class="at">y =</span> <span class="sc">~</span>overall_rating, <span class="at">type =</span> <span class="st">'scatter'</span>, <span class="at">mode =</span> <span class="st">'lines+markers'</span>, <span class="at">name =</span> <span class="st">'Overall Rating'</span>, <span class="at">yaxis =</span> <span class="st">"y2"</span>, <span class="at">line =</span> <span class="fu">list</span>(<span class="at">shape =</span> <span class="st">'li'</span>, <span class="at">connectgaps =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"Number of Interns and Overall Rating per Company (with more than 1 intern)"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Company Name"</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Number of Interns"</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis2 =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Overall Rating"</span>, <span class="at">overlaying =</span> <span class="st">"y"</span>, <span class="at">side =</span> <span class="st">"right"</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(company_results<span class="sc">$</span>overall_rating) <span class="sc">+</span> <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-4450cf079d5d03f3918a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-4450cf079d5d03f3918a">{"x":{"visdat":{"39e874fb57a1":["function () ","plotlyVisDat"]},"cur_data":"39e874fb57a1","attrs":{"39e874fb57a1":{"x":{},"y":{},"name":"Number of Interns","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"39e874fb57a1.1":{"x":{},"y":{},"name":"Overall Rating","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines+markers","yaxis":"y2","line":{"shape":"li","connectgaps":true},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Number of Interns and Overall Rating per Company (with more than 1 intern)","xaxis":{"domain":[0,1],"automargin":true,"title":"Company Name","type":"category","categoryorder":"array","categoryarray":["Aselsan","Baykar Mak.","Makine ve Kimya Endüstrisi A.Ş.","Mercedes","Nurus","Roketsan","Türk Havacılık ve Uzay Sanayii(TUSAŞ)","Türk Traktör","Vestel"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Number of Interns"},"yaxis2":{"title":"Overall Rating","overlaying":"y","side":"right","range":[0,5.5800000000000001]},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Aselsan","Baykar Mak.","Makine ve Kimya Endüstrisi A.Ş.","Mercedes","Nurus","Roketsan","Türk Havacılık ve Uzay Sanayii(TUSAŞ)","Türk Traktör","Vestel"],"y":[4,2,5,2,2,4,7,5,2],"name":"Number of Interns","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Aselsan","Baykar Mak.","Makine ve Kimya Endüstrisi A.Ş.","Mercedes","Nurus","Roketsan","Türk Havacılık ve Uzay Sanayii(TUSAŞ)","Türk Traktör","Vestel"],"y":[4.5800000000000001,4.4199999999999999,3.6699999999999999,4.1699999999999999,3.6699999999999999,4.3300000000000001,3.6899999999999999,3.73,3.6699999999999999],"name":"Overall Rating","type":"scatter","mode":"lines+markers","yaxis":"y2","line":{"color":"rgba(255,127,14,1)","shape":"li","connectgaps":true},"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -362,30 +636,243 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT c.industry, COUNT(*) AS num_interns</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">FROM internships i</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">JOIN companies c ON i.company_id = c.company_id</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY c.industry</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">HAVING num_interns &gt; 1</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY num_interns DESC;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the query and fetch the results</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(db_connection, query)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder the results dataframe by num_interns in descending order</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> results[<span class="fu">order</span>(<span class="sc">-</span>results<span class="sc">$</span>num_interns), ]</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results using plotly</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(results, <span class="at">x =</span> <span class="sc">~</span><span class="fu">reorder</span>(industry, <span class="sc">-</span>num_interns), <span class="at">y =</span> <span class="sc">~</span>num_interns, <span class="at">type =</span> <span class="st">'bar'</span>, <span class="at">name =</span> <span class="st">'Number of Interns'</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"Number of Interns per Industry (with more than 1 intern)"</span>,</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Industry"</span>, <span class="at">categoryorder =</span> <span class="st">"total descending"</span>),</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Number of Interns"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your SQL query to calculate the overall rating per industry</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">    c.industry,</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="st">    COUNT(*) AS num_interns,</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.transportation_rating), 2) AS avg_transportation_rating,</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.work_env_rating), 2) AS avg_work_env_rating,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.learning_opp_rating), 2) AS avg_learning_opp_rating,</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.food_rating), 2) AS avg_food_rating,</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.hr_rating), 2) AS avg_hr_rating,</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.mentor_rating), 2) AS avg_mentor_rating,</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND((AVG(r.transportation_rating) + AVG(r.work_env_rating) + AVG(r.learning_opp_rating) + AVG(r.food_rating) + AVG(r.hr_rating) + AVG(r.mentor_rating)) / 6, 2) AS overall_rating</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="st">FROM internships i</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="st">JOIN companies c ON i.company_id = c.company_id</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="st">LEFT JOIN ratings r ON i.internship_id = r.internship_id</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY c.industry</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="st">HAVING num_interns &gt; 1</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY num_interns DESC;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the query and fetch the results</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(db_connection, query)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder the results dataframe by num_interns in descending order</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> results[<span class="fu">order</span>(<span class="sc">-</span>results<span class="sc">$</span>num_interns), ]</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-5be99def1dc1b296bbd9" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-5be99def1dc1b296bbd9">{"x":{"visdat":{"3f041dc34de2":["function () ","plotlyVisDat"]},"cur_data":"3f041dc34de2","attrs":{"3f041dc34de2":{"x":{},"y":{},"name":"Number of Interns","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Number of Interns per Industry (with more than 1 intern)","xaxis":{"domain":[0,1],"automargin":true,"title":"Industry","categoryorder":"total descending","type":"category","categoryarray":["Automotive","Aerospace","Defense","Ammo","Electronics","Furniture"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Number of Interns"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Automotive","Aerospace","Defense","Ammo","Electronics","Furniture"],"y":[12,9,8,5,2,2],"name":"Number of Interns","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">industry</th>
+<th style="text-align: right;">num_interns</th>
+<th style="text-align: right;">avg_transportation_rating</th>
+<th style="text-align: right;">avg_work_env_rating</th>
+<th style="text-align: right;">avg_learning_opp_rating</th>
+<th style="text-align: right;">avg_food_rating</th>
+<th style="text-align: right;">avg_hr_rating</th>
+<th style="text-align: right;">avg_mentor_rating</th>
+<th style="text-align: right;">overall_rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Automotive</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">3.58</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">3.83</td>
+<td style="text-align: right;">3.58</td>
+<td style="text-align: right;">3.83</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aerospace</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">4.22</td>
+<td style="text-align: right;">4.11</td>
+<td style="text-align: right;">3.56</td>
+<td style="text-align: right;">4.33</td>
+<td style="text-align: right;">3.56</td>
+<td style="text-align: right;">3.33</td>
+<td style="text-align: right;">3.85</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Defense</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">4.63</td>
+<td style="text-align: right;">4.63</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.13</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">4.38</td>
+<td style="text-align: right;">4.46</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ammo</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4.20</td>
+<td style="text-align: right;">3.20</td>
+<td style="text-align: right;">3.40</td>
+<td style="text-align: right;">3.40</td>
+<td style="text-align: right;">4.20</td>
+<td style="text-align: right;">3.60</td>
+<td style="text-align: right;">3.67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Electronics</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">3.67</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Furniture</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">3.67</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results using plotly</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(results, <span class="at">x =</span> <span class="sc">~</span><span class="fu">reorder</span>(industry, <span class="sc">-</span>num_interns), <span class="at">y =</span> <span class="sc">~</span>num_interns, <span class="at">type =</span> <span class="st">'bar'</span>, <span class="at">name =</span> <span class="st">'Number of Interns'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_trace</span>(<span class="at">x =</span> <span class="sc">~</span><span class="fu">reorder</span>(industry, <span class="sc">-</span>num_interns), <span class="at">y =</span> <span class="sc">~</span>overall_rating, <span class="at">type =</span> <span class="st">'scatter'</span>, <span class="at">mode =</span> <span class="st">'lines+markers'</span>, <span class="at">name =</span> <span class="st">'Overall Rating'</span>, <span class="at">yaxis =</span> <span class="st">"y2"</span>, <span class="at">connectgaps =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"Number of Interns and Overall Rating per Industry (with more than 1 intern)"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Industry"</span>, <span class="at">categoryorder =</span> <span class="st">"total descending"</span>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Number of Interns"</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis2 =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Overall Rating"</span>, <span class="at">overlaying =</span> <span class="st">"y"</span>, <span class="at">side =</span> <span class="st">"right"</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(results<span class="sc">$</span>overall_rating) <span class="sc">+</span> <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-05a30885a8dc3a1bac42" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-05a30885a8dc3a1bac42">{"x":{"visdat":{"39e81a0c2387":["function () ","plotlyVisDat"]},"cur_data":"39e81a0c2387","attrs":{"39e81a0c2387":{"x":{},"y":{},"name":"Number of Interns","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"39e81a0c2387.1":{"x":{},"y":{},"name":"Overall Rating","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines+markers","yaxis":"y2","connectgaps":true,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Number of Interns and Overall Rating per Industry (with more than 1 intern)","xaxis":{"domain":[0,1],"automargin":true,"title":"Industry","categoryorder":"total descending","type":"category","categoryarray":["Automotive","Aerospace","Defense","Ammo","Electronics","Furniture"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Number of Interns"},"yaxis2":{"title":"Overall Rating","overlaying":"y","side":"right","range":[0,5.46]},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Automotive","Aerospace","Defense","Ammo","Electronics","Furniture"],"y":[12,9,8,5,2,2],"name":"Number of Interns","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Automotive","Aerospace","Defense","Ammo","Electronics","Furniture"],"y":[3.8300000000000001,3.8500000000000001,4.46,3.6699999999999999,3.6699999999999999,3.6699999999999999],"name":"Overall Rating","type":"scatter","mode":"lines+markers","yaxis":"y2","connectgaps":true,"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="number-of-interns-per-department" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Number of Interns per Department</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your SQL query to count the number of interns per department and calculate the average learning opportunity rating</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">    i.department,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">    COUNT(*) AS num_interns,</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="st">    ROUND(AVG(r.learning_opp_rating), 2) AS avg_learning_opp_rating</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">FROM internships i</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">LEFT JOIN ratings r ON i.internship_id = r.internship_id</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY i.department;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the query and fetch the results</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>department_results <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(db_connection, query)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(department_results, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">department</th>
+<th style="text-align: right;">num_interns</th>
+<th style="text-align: right;">avg_learning_opp_rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Bilgi Teknolojileri</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Çaycı</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dijital Dönüşüm</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">E-Ticaret</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Finans</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Global Order Center</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">İnsan Kaynakları</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">İş Geliştirme</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4.67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kalite</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lojistik</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.67</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results using plotly</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(department_results, <span class="at">x =</span> <span class="sc">~</span>department, <span class="at">y =</span> <span class="sc">~</span>num_interns, <span class="at">type =</span> <span class="st">'bar'</span>, <span class="at">name =</span> <span class="st">'Number of Interns'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_trace</span>(<span class="at">x =</span> <span class="sc">~</span>department, <span class="at">y =</span> <span class="sc">~</span>avg_learning_opp_rating, <span class="at">type =</span> <span class="st">'scatter'</span>, <span class="at">mode =</span> <span class="st">'lines+markers'</span>, <span class="at">name =</span> <span class="st">'Avg Learning Opp Rating'</span>, <span class="at">yaxis =</span> <span class="st">"y2"</span>, <span class="at">connectgaps =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"Number of Interns and Average Learning Opp Rating per Department"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Department"</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Number of Interns"</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis2 =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Avg Learning Opp Rating"</span>, <span class="at">overlaying =</span> <span class="st">"y"</span>, <span class="at">side =</span> <span class="st">"right"</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(department_results<span class="sc">$</span>avg_learning_opp_rating) <span class="sc">+</span> <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-d6fa9943cf2fc97d777c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d6fa9943cf2fc97d777c">{"x":{"visdat":{"39e85b0d28c5":["function () ","plotlyVisDat"]},"cur_data":"39e85b0d28c5","attrs":{"39e85b0d28c5":{"x":{},"y":{},"name":"Number of Interns","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"39e85b0d28c5.1":{"x":{},"y":{},"name":"Avg Learning Opp Rating","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines+markers","yaxis":"y2","connectgaps":true,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Number of Interns and Average Learning Opp Rating per Department","xaxis":{"domain":[0,1],"automargin":true,"title":"Department","type":"category","categoryorder":"array","categoryarray":["Bilgi Teknolojileri","Çaycı","Dijital Dönüşüm","E-Ticaret","Finans","Global Order Center","İnsan Kaynakları","İş Geliştirme","Kalite","Lojistik","Pazarlama","Proje Yönetimi","Proses Mühendisliği ","Quality Assurance/ Software Testing","Satın Alma","Satış","Tedarik Zinciri","Üretim","Üretim Planlama"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Number of Interns"},"yaxis2":{"title":"Avg Learning Opp Rating","overlaying":"y","side":"right","range":[0,6]},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Bilgi Teknolojileri","Çaycı","Dijital Dönüşüm","E-Ticaret","Finans","Global Order Center","İnsan Kaynakları","İş Geliştirme","Kalite","Lojistik","Pazarlama","Proje Yönetimi","Proses Mühendisliği ","Quality Assurance/ Software Testing","Satın Alma","Satış","Tedarik Zinciri","Üretim","Üretim Planlama"],"y":[1,1,1,1,1,1,2,3,3,3,1,5,1,1,3,1,2,14,9],"name":"Number of Interns","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Bilgi Teknolojileri","Çaycı","Dijital Dönüşüm","E-Ticaret","Finans","Global Order Center","İnsan Kaynakları","İş Geliştirme","Kalite","Lojistik","Pazarlama","Proje Yönetimi","Proses Mühendisliği ","Quality Assurance/ Software Testing","Satın Alma","Satış","Tedarik Zinciri","Üretim","Üretim Planlama"],"y":[5,4,5,5,5,4,2,4.6699999999999999,3.3300000000000001,3.6699999999999999,5,4.4000000000000004,4,5,3.6699999999999999,5,4.5,3.4300000000000002,3.6699999999999999],"name":"Avg Learning Opp Rating","type":"scatter","mode":"lines+markers","yaxis":"y2","connectgaps":true,"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
