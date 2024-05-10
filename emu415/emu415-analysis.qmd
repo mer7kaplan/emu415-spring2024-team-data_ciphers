@@ -200,3 +200,39 @@ plot_ly(department_results, x = ~department, y = ~num_interns, type = 'bar', nam
          yaxis2 = list(title = "Avg Learning Opp Rating", overlaying = "y", side = "right", range = c(0, max(department_results$avg_learning_opp_rating) + 1)))
 
 ```
+
+# Comments
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+
+# SQL query
+query <- "
+SELECT 
+    s.first_name,
+    s.last_name,
+    c.company_name,
+    ROUND((r.transportation_rating + r.work_env_rating + r.learning_opp_rating + r.food_rating + r.hr_rating + r.mentor_rating) / 6, 2) AS overall_rating,
+    r.comment
+FROM 
+    ratings r
+JOIN 
+    internships i ON r.internship_id = i.internship_id
+JOIN 
+    students s ON i.student_id = s.student_id
+JOIN 
+    companies c ON i.company_id = c.company_id
+WHERE 
+    r.comment IS NOT NULL
+ORDER BY
+    s.first_name;
+"
+
+# Execute the query and fetch the results
+results <- dbGetQuery(db_connection, query)
+
+# Display the results
+kable(results)
+```
