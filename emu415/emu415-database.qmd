@@ -15,7 +15,7 @@ format:
     number-sections: true
 ---
 
-![](images/DataCiphersLogoAnimation-ezgif.com-crop.gif){fig-align="center"}
+![](intro.gif){fig-align="center"}
 
 Libraries and connection parameters are provided here.
 

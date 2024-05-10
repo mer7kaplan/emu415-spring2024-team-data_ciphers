@@ -38,6 +38,7 @@ website:
       contents:
         - emu415.qmd
         - emu415/emu415-database.qmd
+        - emu415/emu415-analysis.qmd
 
   page-navigation: true
   back-to-top-navigation: true
