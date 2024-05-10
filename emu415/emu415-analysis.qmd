@@ -16,3 +16,67 @@ format:
 ---
 
 ![](images/ciphers_logo.gif){fig-align="center" width="428"}
+
+Libraries and connection parameters are provided here.
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+library(RMySQL)
+library(readr)
+library(dplyr)
+library(knitr)
+library(ggplot2)
+library(plotly)
+library(lubridate)
+
+# Set up the connection parameters
+db_host <- "127.0.0.1"  # Localhost address
+db_user <- "root"  # MySQL username
+db_password <- ""  # MySQL password
+db_name <- "emu415"  # The name of database
+
+# Establish the connection
+db_connection <- dbConnect(RMySQL::MySQL(), 
+                           host = db_host,
+                           user = db_user,
+                           password = db_password,
+                           dbname = db_name)
+```
+
+# Overall Rating per Company
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+
+# Write your SQL query to calculate overall rating per company
+query <- "
+SELECT 
+    companies.company_name,
+    ROUND(AVG(ratings.transportation_rating), 2) AS avg_transportation_rating,
+    ROUND(AVG(ratings.work_env_rating), 2) AS avg_work_env_rating,
+    ROUND(AVG(ratings.learning_opp_rating), 2) AS avg_learning_opp_rating,
+    ROUND(AVG(ratings.food_rating), 2) AS avg_food_rating,
+    ROUND(AVG(ratings.hr_rating), 2) AS avg_hr_rating,
+    ROUND(AVG(ratings.mentor_rating), 2) AS avg_mentor_rating,
+    ROUND((AVG(ratings.transportation_rating) + AVG(ratings.work_env_rating) + AVG(ratings.learning_opp_rating) + AVG(ratings.food_rating) + AVG(ratings.hr_rating) + AVG(ratings.mentor_rating)) / 6, 2) AS overall_rating
+FROM internships
+JOIN companies ON internships.company_id = companies.company_id
+JOIN ratings ON internships.internship_id = ratings.internship_id
+GROUP BY companies.company_name
+ORDER BY overall_rating DESC
+"
+
+# Execute the query and fetch the results
+results <- dbGetQuery(db_connection, query)
+
+# Plot the results using plotly
+plot_ly(results, x = ~company_name, y = ~overall_rating, type = 'bar', name = 'Overall Rating') %>%
+  layout(title = "Overall Rating per Company",
+         xaxis = list(title = "", tickangle = 45, tickfont = list(size = 10)),
+         yaxis = list(title = "Overall Rating")) %>%
+  arrange(desc(overall_rating))
+```
