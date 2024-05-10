@@ -49,7 +49,6 @@ Our database aims to facilitate the process of selecting and finding companies f
     -   email
     -   join_year
     -   gpa
-    -   website
 
 2.  **Company**
 
@@ -58,23 +57,22 @@ Our database aims to facilitate the process of selecting and finding companies f
     -   industry
     -   location
     -   contact_info
-    -   app_website
-    -   working_hours
-    -   transportation_status
+    -   website
 
 3.  **Internship**
 
     -   internship_id (Primary Key)
     -   student_id (Foreign Key)
     -   company_id (Foreign Key)
+    -   intern_type
     -   department
-    -   duration
+    -   year
     -   start_date
     -   end_date
-    -   intern_type
-    -   requirements
-    -   status
+    -   duration
     -   income
+    -   working_hours
+    -   transportation_status
 
 4.  **Rating**
 
@@ -85,9 +83,8 @@ Our database aims to facilitate the process of selecting and finding companies f
     -   learning_opp_rating
     -   food_rating
     -   hr_rating
-    -   mentorship_rating
-    -   overall_rating
-    -   comments
+    -   mentor_rating
+    -   comment
 
 ### Relationships
 
