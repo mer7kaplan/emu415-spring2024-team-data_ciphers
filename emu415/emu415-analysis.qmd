@@ -15,7 +15,7 @@ format:
     number-sections: true
 ---
 
-![](images/ciphers_logo.gif){fig-align="center" width="428"}
+![](giphy.gif){fig-align="center" width="360"}
 
 Libraries and connection parameters are provided here.
 

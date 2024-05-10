@@ -99,3 +99,7 @@ Our database aims to facilitate the process of selecting and finding companies f
 
 -   **company to rating through internship:** One to many relationship, each company can have many ratings as well as internships, but each rating can only have one company and one internship.
 :::
+
+### Database Schema
+
+![](images/drawSQL-image-export-2024-05-10.png)
