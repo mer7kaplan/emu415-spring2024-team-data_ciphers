@@ -35,7 +35,7 @@ library(lubridate)
 db_host <- "127.0.0.1"  # Localhost address
 db_user <- "root"  # MySQL username
 db_password <- ""  # MySQL password
-db_name <- "emu415"  # The name of database
+db_name <- "emu415_ciphers"  # The name of database
 
 # Establish the connection
 db_connection <- dbConnect(RMySQL::MySQL(), 
@@ -55,28 +55,89 @@ db_connection <- dbConnect(RMySQL::MySQL(),
 # Write your SQL query to calculate overall rating per company
 query <- "
 SELECT 
-    companies.company_name,
-    ROUND(AVG(ratings.transportation_rating), 2) AS avg_transportation_rating,
-    ROUND(AVG(ratings.work_env_rating), 2) AS avg_work_env_rating,
-    ROUND(AVG(ratings.learning_opp_rating), 2) AS avg_learning_opp_rating,
-    ROUND(AVG(ratings.food_rating), 2) AS avg_food_rating,
-    ROUND(AVG(ratings.hr_rating), 2) AS avg_hr_rating,
-    ROUND(AVG(ratings.mentor_rating), 2) AS avg_mentor_rating,
-    ROUND((AVG(ratings.transportation_rating) + AVG(ratings.work_env_rating) + AVG(ratings.learning_opp_rating) + AVG(ratings.food_rating) + AVG(ratings.hr_rating) + AVG(ratings.mentor_rating)) / 6, 2) AS overall_rating
-FROM internships
-JOIN companies ON internships.company_id = companies.company_id
-JOIN ratings ON internships.internship_id = ratings.internship_id
-GROUP BY companies.company_name
+    c.company_name,
+    ROUND(AVG(r.transportation_rating), 2) AS avg_transportation_rating,
+    ROUND(AVG(r.work_env_rating), 2) AS avg_work_env_rating,
+    ROUND(AVG(r.learning_opp_rating), 2) AS avg_learning_opp_rating,
+    ROUND(AVG(r.food_rating), 2) AS avg_food_rating,
+    ROUND(AVG(r.hr_rating), 2) AS avg_hr_rating,
+    ROUND(AVG(r.mentor_rating), 2) AS avg_mentor_rating,
+    ROUND((AVG(r.transportation_rating) + AVG(r.work_env_rating) + AVG(r.learning_opp_rating) + AVG(r.food_rating) + AVG(r.hr_rating) + AVG(r.mentor_rating)) / 6, 2) AS overall_rating
+FROM internships AS i
+JOIN companies AS c ON i.company_id = c.company_id
+JOIN ratings AS r ON i.internship_id = r.internship_id
+GROUP BY c.company_name
 ORDER BY overall_rating DESC
 "
 
 # Execute the query and fetch the results
 results <- dbGetQuery(db_connection, query)
 
+# Reverse the order of the results dataframe
+results <- results[order(-results$overall_rating), ]
+
 # Plot the results using plotly
 plot_ly(results, x = ~company_name, y = ~overall_rating, type = 'bar', name = 'Overall Rating') %>%
   layout(title = "Overall Rating per Company",
-         xaxis = list(title = "", tickangle = 45, tickfont = list(size = 10)),
-         yaxis = list(title = "Overall Rating")) %>%
-  arrange(desc(overall_rating))
+         xaxis = list(title = "", tickangle = 45, tickfont = list(size = 10), categoryorder = "array", categoryarray = ~company_name),
+         yaxis = list(title = "Overall Rating"))
+```
+
+# Number of Interns in Each Company
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Write your SQL query to count the number of interns per company
+query <- "
+SELECT company_name, COUNT(*) AS num_interns
+FROM internships
+JOIN companies ON internships.company_id = companies.company_id
+GROUP BY company_name
+HAVING COUNT(*) > 1
+ORDER BY num_interns DESC
+"
+
+# Execute the query and fetch the results
+intern_counts <- dbGetQuery(db_connection, query)
+
+# Plot the results using plotly
+plot <- plot_ly(intern_counts, x = ~reorder(company_name, -num_interns), y = ~num_interns, type = "bar") %>%
+  layout(title = "Number of Interns (>1) in Each Company",
+         xaxis = list(title = "Company Name"),
+         yaxis = list(title = "Number of Interns"))
+
+# Display the plot
+plot
+```
+
+# Number of Interns per Industry
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Write your SQL query to count the number of interns per industry where the number of interns is greater than 1
+query <- "
+SELECT c.industry, COUNT(*) AS num_interns
+FROM internships i
+JOIN companies c ON i.company_id = c.company_id
+GROUP BY c.industry
+HAVING num_interns > 1
+ORDER BY num_interns DESC;
+"
+
+# Execute the query and fetch the results
+results <- dbGetQuery(db_connection, query)
+
+# Reorder the results dataframe by num_interns in descending order
+results <- results[order(-results$num_interns), ]
+
+# Plot the results using plotly
+plot_ly(results, x = ~reorder(industry, -num_interns), y = ~num_interns, type = 'bar', name = 'Number of Interns') %>%
+  layout(title = "Number of Interns per Industry (with more than 1 intern)",
+         xaxis = list(title = "Industry", categoryorder = "total descending"),
+         yaxis = list(title = "Number of Interns"))
+
 ```
