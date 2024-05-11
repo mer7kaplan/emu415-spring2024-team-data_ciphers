@@ -29,6 +29,10 @@ library(dplyr)
 library(knitr)
 library(ggplot2)
 library(plotly)
+library(leaflet)
+library(tidyr)
+library(httr)
+library(jsonlite)
 library(lubridate)
 
 # Set up the connection parameters
@@ -235,4 +239,61 @@ results <- dbGetQuery(db_connection, query)
 
 # Display the results
 kable(results)
+```
+
+# Geographical Distribution of Companies
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Function to geocode using OpenStreetMap Nominatim API
+geocode_nominatim <- function(location) {
+  url <- paste0("https://nominatim.openstreetmap.org/search?q=", URLencode(location), "&format=json&addressdetails=1")
+  response <- GET(url)
+  if (http_error(response)) {
+    stop("Error occurred while geocoding")
+  }
+  result <- content(response)
+  if (length(result) == 0) {
+    stop("No results found for the location")
+  }
+  # Extract latitude and longitude from the first result
+  latitude <- as.numeric(result[[1]]$lat)
+  longitude <- as.numeric(result[[1]]$lon)
+  return(data.frame(latitude = latitude,
+                    longitude = longitude,
+                    location = location))
+}
+
+# Query to fetch company name, location, and overall rating
+query <- "
+SELECT c.company_name, c.location, 
+ROUND((AVG(r.transportation_rating) + AVG(r.work_env_rating) + AVG(r.learning_opp_rating) + AVG(r.food_rating) + AVG(r.hr_rating) + AVG(r.mentor_rating)) / 6, 2) AS overall_rating
+FROM internships i
+JOIN companies c ON i.company_id = c.company_id
+LEFT JOIN ratings r ON i.internship_id = r.internship_id
+GROUP BY c.company_name, c.location
+"
+
+# Retrieve company name, location, and overall rating data
+company_data <- dbGetQuery(db_connection, query)
+
+# Geocode the locations using OpenStreetMap Nominatim
+geocoded_locations <- lapply(company_data$location, geocode_nominatim)
+geocoded_locations <- do.call(rbind, geocoded_locations)
+
+# Create a Leaflet map
+map <- leaflet() %>%
+  addTiles() %>%
+  setView(lng = 35.1686, lat = 39.9334, zoom = 6) %>%  # Center the map on Turkey
+  addCircleMarkers(data = geocoded_locations, lng = ~longitude, lat = ~latitude,
+                   radius = 6, color = "blue", fillOpacity = 0.8,
+                   popup = paste("<b>Company:</b> ", company_data$company_name, "<br>",
+                                 "<b>Overall Rating:</b> ", company_data$overall_rating),
+                   stroke = FALSE, group = "markers") %>%
+  addLayersControl(overlayGroups = "markers", options = layersControlOptions(collapsed = FALSE))
+
+# Display the map
+map
 ```
