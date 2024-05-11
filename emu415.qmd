@@ -19,6 +19,8 @@ format:
 
 ## EMU Hacettepe Internship Informing & Feedback System
 
+{{< video dataciphers.mp4 >}}
+
 ### Objective
 
 ::: {style="text-align: justify;"}
