@@ -19,6 +19,8 @@ format:
 
 ## EMU Hacettepe Internship Informing & Feedback System
 
+### Teaser Trailer
+
 {{< video dataciphers.mp4 >}}
 
 ### Objective
@@ -52,6 +54,38 @@ Our database aims to facilitate the process of selecting and finding companies f
     -   join_year
     -   gpa
 
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+library(RMySQL)
+library(readr)
+library(dplyr)
+library(knitr)
+library(lubridate)
+
+# Set up the connection parameters
+db_host <- "127.0.0.1"  # Localhost address
+db_user <- "root"  # Your MySQL username
+db_password <- ""  # Your MySQL password
+db_name <- "emu415_ciphers"  # The name of your database
+
+# Establish the connection
+db_connection <- dbConnect(RMySQL::MySQL(), 
+                           host = db_host,
+                           user = db_user,
+                           password = db_password,
+                           dbname = db_name)
+# Define the SQL query
+sql_query <- "SELECT first_name, last_name, email, join_year FROM students ORDER BY first_name;"
+
+# Execute the SQL query and retrieve the results
+results <- dbGetQuery(db_connection, sql_query)
+
+# Display the results
+kable(head(results, 10))
+```
+
 2.  **Company**
 
     -   company_id (Primary Key)
@@ -60,6 +94,21 @@ Our database aims to facilitate the process of selecting and finding companies f
     -   location
     -   contact_info
     -   website
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Define the SQL query
+sql_query <- "SELECT company_id, company_name, industry, location, contact_info FROM companies;"
+
+# Execute the SQL query and retrieve the results
+results <- dbGetQuery(db_connection, sql_query)
+
+# Display the results
+kable(head(results, 10))
+
+```
 
 3.  **Internship**
 
@@ -76,6 +125,20 @@ Our database aims to facilitate the process of selecting and finding companies f
     -   working_hours
     -   transportation_status
 
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Define the SQL query
+sql_query <- "SELECT internship_id, student_id, company_id, intern_type, department, start_date, end_date FROM internships;"
+
+# Execute the SQL query and retrieve the results
+results <- dbGetQuery(db_connection, sql_query)
+
+# Display the results
+kable(head(results, 10))
+```
+
 4.  **Rating**
 
     -   rating_id (Primary Key)
@@ -87,6 +150,20 @@ Our database aims to facilitate the process of selecting and finding companies f
     -   hr_rating
     -   mentor_rating
     -   comment
+
+```{r message=FALSE, warning=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Define the SQL query
+sql_query <- "SELECT rating_id, transportation_rating, work_env_rating, learning_opp_rating, food_rating, hr_rating, mentor_rating FROM ratings;"
+
+# Execute the SQL query and retrieve the results
+results <- dbGetQuery(db_connection, sql_query)
+
+# Display the results
+kable(head(results, 10))
+```
 
 ### Relationships
 
@@ -102,6 +179,10 @@ Our database aims to facilitate the process of selecting and finding companies f
 -   **company to rating through internship:** One to many relationship, each company can have many ratings as well as internships, but each rating can only have one company and one internship.
 :::
 
-### Database Schema
+### Entity-Relationship Diagram
 
-![](images/drawSQL-image-export-2024-05-10.png)
+![](eer_diagram.png){fig-align="center"}
+
+### Schema Design
+
+![](schema_design.png){fig-align="center"}

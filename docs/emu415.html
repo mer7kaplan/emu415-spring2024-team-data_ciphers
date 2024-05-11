@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -174,11 +208,13 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#emu-hacettepe-internship-informing-feedback-system" id="toc-emu-hacettepe-internship-informing-feedback-system" class="nav-link active" data-scroll-target="#emu-hacettepe-internship-informing-feedback-system"><span class="header-section-number">1</span> EMU Hacettepe Internship Informing &amp; Feedback System</a>
   <ul>
-  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective"><span class="header-section-number">1.1</span> Objective</a></li>
-  <li><a href="#application-features" id="toc-application-features" class="nav-link" data-scroll-target="#application-features"><span class="header-section-number">1.2</span> Application Features</a></li>
-  <li><a href="#relations-tables-and-their-attributes-as-an-initial-design" id="toc-relations-tables-and-their-attributes-as-an-initial-design" class="nav-link" data-scroll-target="#relations-tables-and-their-attributes-as-an-initial-design"><span class="header-section-number">1.3</span> Relations (Tables) and Their Attributes as an Initial Design</a></li>
-  <li><a href="#relationships" id="toc-relationships" class="nav-link" data-scroll-target="#relationships"><span class="header-section-number">1.4</span> Relationships</a></li>
-  <li><a href="#database-schema" id="toc-database-schema" class="nav-link" data-scroll-target="#database-schema"><span class="header-section-number">1.5</span> Database Schema</a></li>
+  <li><a href="#teaser-trailer" id="toc-teaser-trailer" class="nav-link" data-scroll-target="#teaser-trailer"><span class="header-section-number">1.1</span> Teaser Trailer</a></li>
+  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective"><span class="header-section-number">1.2</span> Objective</a></li>
+  <li><a href="#application-features" id="toc-application-features" class="nav-link" data-scroll-target="#application-features"><span class="header-section-number">1.3</span> Application Features</a></li>
+  <li><a href="#relations-tables-and-their-attributes-as-an-initial-design" id="toc-relations-tables-and-their-attributes-as-an-initial-design" class="nav-link" data-scroll-target="#relations-tables-and-their-attributes-as-an-initial-design"><span class="header-section-number">1.4</span> Relations (Tables) and Their Attributes as an Initial Design</a></li>
+  <li><a href="#relationships" id="toc-relationships" class="nav-link" data-scroll-target="#relationships"><span class="header-section-number">1.5</span> Relationships</a></li>
+  <li><a href="#entity-relationship-diagram" id="toc-entity-relationship-diagram" class="nav-link" data-scroll-target="#entity-relationship-diagram"><span class="header-section-number">1.6</span> Entity-Relationship Diagram</a></li>
+  <li><a href="#schema-design" id="toc-schema-design" class="nav-link" data-scroll-target="#schema-design"><span class="header-section-number">1.7</span> Schema Design</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -216,15 +252,18 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="emu-hacettepe-internship-informing-feedback-system" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="emu-hacettepe-internship-informing-feedback-system"><span class="header-section-number">1</span> EMU Hacettepe Internship Informing &amp; Feedback System</h2>
+<section id="teaser-trailer" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="teaser-trailer"><span class="header-section-number">1.1</span> Teaser Trailer</h3>
 <div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="dataciphers.mp4"></video></div>
-<section id="objective" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="objective"><span class="header-section-number">1.1</span> Objective</h3>
+</section>
+<section id="objective" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="objective"><span class="header-section-number">1.2</span> Objective</h3>
 <div style="text-align: justify;">
 <p>Our database aims to facilitate the process of selecting and finding companies for internships for students of Industrial Engineering at Hacettepe University. To achieve this, we gather data and evaluations from students who have previously completed their internships at these companies. The information in our database allows students to know what they can expect to experience and what to expect within the opportunities provided by these companies. In addition to evaluations, our database also includes information about the application process for internship programs offered by relevant companies.</p>
 </div>
 </section>
-<section id="application-features" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="application-features"><span class="header-section-number">1.2</span> Application Features</h3>
+<section id="application-features" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="application-features"><span class="header-section-number">1.3</span> Application Features</h3>
 <div style="text-align: justify;">
 <ul>
 <li><p><strong>Company Search:</strong> Users can search for companies offering internships based on various criteria such as location, industry, duration, and specific requirements.</p></li>
@@ -235,8 +274,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 </section>
-<section id="relations-tables-and-their-attributes-as-an-initial-design" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="relations-tables-and-their-attributes-as-an-initial-design"><span class="header-section-number">1.3</span> Relations (Tables) and Their Attributes as an Initial Design</h3>
+<section id="relations-tables-and-their-attributes-as-an-initial-design" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="relations-tables-and-their-attributes-as-an-initial-design"><span class="header-section-number">1.4</span> Relations (Tables) and Their Attributes as an Initial Design</h3>
 <ol type="1">
 <li><p><strong>Student</strong></p>
 <ul>
@@ -247,6 +286,113 @@ ul.task-list li input[type="checkbox"] {
 <li>join_year</li>
 <li>gpa</li>
 </ul></li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RMySQL)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the connection parameters</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>db_host <span class="ot">&lt;-</span> <span class="st">"127.0.0.1"</span>  <span class="co"># Localhost address</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>db_user <span class="ot">&lt;-</span> <span class="st">"root"</span>  <span class="co"># Your MySQL username</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>db_password <span class="ot">&lt;-</span> <span class="st">""</span>  <span class="co"># Your MySQL password</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>db_name <span class="ot">&lt;-</span> <span class="st">"emu415_ciphers"</span>  <span class="co"># The name of your database</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Establish the connection</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>db_connection <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RMySQL<span class="sc">::</span><span class="fu">MySQL</span>(), </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">host =</span> db_host,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                           <span class="at">user =</span> db_user,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                           <span class="at">password =</span> db_password,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                           <span class="at">dbname =</span> db_name)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the SQL query</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>sql_query <span class="ot">&lt;-</span> <span class="st">"SELECT first_name, last_name, email, join_year FROM students ORDER BY first_name;"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the SQL query and retrieve the results</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(db_connection, sql_query)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">first_name</th>
+<th style="text-align: left;">last_name</th>
+<th style="text-align: left;">email</th>
+<th style="text-align: left;">join_year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ahad Tanay</td>
+<td style="text-align: left;">Uyar</td>
+<td style="text-align: left;">tanayuyar@hacettepe.edu.tr</td>
+<td style="text-align: left;">2019</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ahmet Safa</td>
+<td style="text-align: left;">Çetin</td>
+<td style="text-align: left;">safacetin@hacettepe.edu.tr</td>
+<td style="text-align: left;">2020</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Arda</td>
+<td style="text-align: left;">Türkan</td>
+<td style="text-align: left;">ardaturkan@hacettepe.edu.tr</td>
+<td style="text-align: left;">2020</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Artun</td>
+<td style="text-align: left;">Üstünol</td>
+<td style="text-align: left;">artunustunol@hacettepe.edu.tr</td>
+<td style="text-align: left;">2019</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ayşenur</td>
+<td style="text-align: left;">Eren</td>
+<td style="text-align: left;">aysenur.eren@hacettepe.edu.tr</td>
+<td style="text-align: left;">2019</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Begüm</td>
+<td style="text-align: left;">Bahçekapılı</td>
+<td style="text-align: left;">begumbahcekapili@hacettepe.edu.tr</td>
+<td style="text-align: left;">2020</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Berkant</td>
+<td style="text-align: left;">Aytemir</td>
+<td style="text-align: left;">berkant.aytemir@hacettepe.edu.tr</td>
+<td style="text-align: left;">2019</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ceren</td>
+<td style="text-align: left;">Arslan</td>
+<td style="text-align: left;">arslan.ceren@hacettepe.edu.tr</td>
+<td style="text-align: left;">2020</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dilan Su</td>
+<td style="text-align: left;">Fırat</td>
+<td style="text-align: left;">sufirat@hacettepe.edu.tr</td>
+<td style="text-align: left;">2019</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Doğa</td>
+<td style="text-align: left;">Oral</td>
+<td style="text-align: left;">doral@hacettepe.edu.tr</td>
+<td style="text-align: left;">2019</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="2" type="1">
 <li><p><strong>Company</strong></p>
 <ul>
 <li>company_id (Primary Key)</li>
@@ -256,6 +402,113 @@ ul.task-list li input[type="checkbox"] {
 <li>contact_info</li>
 <li>website</li>
 </ul></li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the SQL query</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sql_query <span class="ot">&lt;-</span> <span class="st">"SELECT company_id, company_name, industry, location, contact_info FROM companies;"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the SQL query and retrieve the results</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(db_connection, sql_query)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 40%">
+<col style="width: 11%">
+<col style="width: 22%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">company_id</th>
+<th style="text-align: left;">company_name</th>
+<th style="text-align: left;">industry</th>
+<th style="text-align: left;">location</th>
+<th style="text-align: left;">contact_info</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Roketsan</td>
+<td style="text-align: left;">Defense</td>
+<td style="text-align: left;">Elmadağ/Ankara</td>
+<td style="text-align: left;">312 860 5500</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Baykar Mak.</td>
+<td style="text-align: left;">Aerospace</td>
+<td style="text-align: left;">Esenyurt/İstanbul</td>
+<td style="text-align: left;">212 867 0900</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">RND Yazılım ve E-Ticaret</td>
+<td style="text-align: left;">E-Commerce</td>
+<td style="text-align: left;">Kağıthane/İstanbul</td>
+<td style="text-align: left;">212 324 2440</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Karsan</td>
+<td style="text-align: left;">Automotive</td>
+<td style="text-align: left;">Nilüfer/Bursa</td>
+<td style="text-align: left;">224 280 3000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Nurus</td>
+<td style="text-align: left;">Furniture</td>
+<td style="text-align: left;">Söğütözü/Ankara</td>
+<td style="text-align: left;">312 447 62 32</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Türk Havacılık ve Uzay Sanayii(TUSAŞ)</td>
+<td style="text-align: left;">Aerospace</td>
+<td style="text-align: left;">Kahramankazan/Ankara</td>
+<td style="text-align: left;">312 811 18 00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Türk Traktör</td>
+<td style="text-align: left;">Automotive</td>
+<td style="text-align: left;">Etimesgut/Ankara</td>
+<td style="text-align: left;">312 233 33 33</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Makine ve Kimya Endüstrisi A.Ş.</td>
+<td style="text-align: left;">Ammo</td>
+<td style="text-align: left;">Gazi/Ankara</td>
+<td style="text-align: left;">312 296 10 00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">SAP</td>
+<td style="text-align: left;">Software</td>
+<td style="text-align: left;">Üsküdar/İstanbul</td>
+<td style="text-align: left;">216 633 04 74</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Aselsan</td>
+<td style="text-align: left;">Defense</td>
+<td style="text-align: left;">Macunköy/Ankara</td>
+<td style="text-align: left;">312 592 10 00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="3" type="1">
 <li><p><strong>Internship</strong></p>
 <ul>
 <li>internship_id (Primary Key)</li>
@@ -271,6 +524,137 @@ ul.task-list li input[type="checkbox"] {
 <li>working_hours</li>
 <li>transportation_status</li>
 </ul></li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the SQL query</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sql_query <span class="ot">&lt;-</span> <span class="st">"SELECT internship_id, student_id, company_id, intern_type, department, start_date, end_date FROM internships;"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the SQL query and retrieve the results</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(db_connection, sql_query)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 34%">
+<col style="width: 10%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">internship_id</th>
+<th style="text-align: right;">student_id</th>
+<th style="text-align: right;">company_id</th>
+<th style="text-align: left;">intern_type</th>
+<th style="text-align: left;">department</th>
+<th style="text-align: left;">start_date</th>
+<th style="text-align: left;">end_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">21948451</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">Lojistik</td>
+<td style="text-align: left;">Haziran</td>
+<td style="text-align: left;">Temmuz</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2200469816</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">Haziran</td>
+<td style="text-align: left;">Temmuz</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2200469005</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">Yönetim</td>
+<td style="text-align: left;">E-Ticaret</td>
+<td style="text-align: left;">Temmuz</td>
+<td style="text-align: left;">Ağustos</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">21948484</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">Haziran</td>
+<td style="text-align: left;">Temmuz</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">21948011</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">Ağustos</td>
+<td style="text-align: left;">Eylül</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2200469011</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">İş Geliştirme</td>
+<td style="text-align: left;">Ağustos</td>
+<td style="text-align: left;">Ağustos</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">21947861</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">Temmuz</td>
+<td style="text-align: left;">Ağustos</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2200469058</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">Yönetim</td>
+<td style="text-align: left;">Üretim Planlama</td>
+<td style="text-align: left;">Temmuz</td>
+<td style="text-align: left;">Ağustos</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">21948044</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: left;">Üretim</td>
+<td style="text-align: left;">Lojistik</td>
+<td style="text-align: left;">Temmuz</td>
+<td style="text-align: left;">Ağustos</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">21948317</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">Yönetim</td>
+<td style="text-align: left;">Quality Assurance/ Software Testing</td>
+<td style="text-align: left;">Temmuz</td>
+<td style="text-align: left;">Ağustos</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="4" type="1">
 <li><p><strong>Rating</strong></p>
 <ul>
 <li>rating_id (Primary Key)</li>
@@ -284,9 +668,138 @@ ul.task-list li input[type="checkbox"] {
 <li>comment</li>
 </ul></li>
 </ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the SQL query</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sql_query <span class="ot">&lt;-</span> <span class="st">"SELECT rating_id, transportation_rating, work_env_rating, learning_opp_rating, food_rating, hr_rating, mentor_rating FROM ratings;"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the SQL query and retrieve the results</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(db_connection, sql_query)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 21%">
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">rating_id</th>
+<th style="text-align: right;">transportation_rating</th>
+<th style="text-align: right;">work_env_rating</th>
+<th style="text-align: right;">learning_opp_rating</th>
+<th style="text-align: right;">food_rating</th>
+<th style="text-align: right;">hr_rating</th>
+<th style="text-align: right;">mentor_rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
-<section id="relationships" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="relationships"><span class="header-section-number">1.4</span> Relationships</h3>
+<section id="relationships" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="relationships"><span class="header-section-number">1.5</span> Relationships</h3>
 <div style="text-align: justify;">
 <ul>
 <li><p><strong>internships belongs to company:</strong> One-to-many relationship, each company can offer multiple internships, but each internship is associated with only one company.</p></li>
@@ -297,9 +810,21 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 </section>
-<section id="database-schema" class="level3" data-number="1.5">
-<h3 data-number="1.5" class="anchored" data-anchor-id="database-schema"><span class="header-section-number">1.5</span> Database Schema</h3>
-<p><img src="images/drawSQL-image-export-2024-05-10.png" class="img-fluid"></p>
+<section id="entity-relationship-diagram" class="level3" data-number="1.6">
+<h3 data-number="1.6" class="anchored" data-anchor-id="entity-relationship-diagram"><span class="header-section-number">1.6</span> Entity-Relationship Diagram</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="eer_diagram.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="schema-design" class="level3" data-number="1.7">
+<h3 data-number="1.7" class="anchored" data-anchor-id="schema-design"><span class="header-section-number">1.7</span> Schema Design</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="schema_design.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 
 
 </section>

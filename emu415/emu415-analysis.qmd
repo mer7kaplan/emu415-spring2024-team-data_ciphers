@@ -49,7 +49,7 @@ db_connection <- dbConnect(RMySQL::MySQL(),
                            dbname = db_name)
 ```
 
-# Overall Rating per Company
+## Overall Rating per Company
 
 ```{r message=FALSE, warning=FALSE}
 #| code-fold: true
@@ -89,7 +89,7 @@ plot_ly(results, x = ~company_name, y = ~overall_rating, type = 'bar', name = 'O
          yaxis = list(title = "Overall Rating", range = c(1, 5)))
 ```
 
-# Number of Interns in Each Company
+## Number of Interns in Each Company
 
 ```{r message=FALSE, warning=FALSE}
 #| code-fold: true
@@ -128,7 +128,7 @@ plot_ly(company_results, x = ~company_name, y = ~num_interns, type = 'bar', name
          yaxis2 = list(title = "Overall Rating", overlaying = "y", side = "right", range = c(0, max(company_results$overall_rating) + 1)))
 ```
 
-# Number of Interns per Industry
+## Number of Interns per Industry
 
 ```{r message=FALSE, warning=FALSE}
 #| code-fold: true
@@ -172,7 +172,7 @@ plot_ly(results, x = ~reorder(industry, -num_interns), y = ~num_interns, type = 
 
 ```
 
-# Number of Interns per Department
+## Number of Interns per Department
 
 ```{r message=FALSE, warning=FALSE}
 #| code-fold: true
@@ -205,7 +205,7 @@ plot_ly(department_results, x = ~department, y = ~num_interns, type = 'bar', nam
 
 ```
 
-# Comments
+## Comments
 
 ```{r message=FALSE, warning=FALSE}
 #| code-fold: true
@@ -241,7 +241,7 @@ results <- dbGetQuery(db_connection, query)
 kable(results)
 ```
 
-# Geographical Distribution of Companies
+## Geographical Distribution of Companies
 
 ```{r message=FALSE, warning=FALSE}
 #| code-fold: true
