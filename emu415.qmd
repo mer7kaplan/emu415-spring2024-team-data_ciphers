@@ -38,8 +38,6 @@ Our database aims to facilitate the process of selecting and finding companies f
 
 -   **Company Profiles:** Detailed profiles for each company, including information about their internship programs, requirements, past interns' experiences, and any additional benefits offered.
 
--   **Internship Opportunities:** A section dedicated to listing current internship opportunities available at different companies, with details on application websites, requirements, and how to apply.
-
 -   **Analytics and Insights:** Data analytics features to provide insights and trends based on the evaluations and feedback collected from students, helping to identify top-rated companies, popular internship programs, and areas for improvement.
 :::
 
